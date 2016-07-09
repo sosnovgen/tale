@@ -1,0 +1,56 @@
+/*@import url(http://fonts.googleapis.com/css?Philosopher&subse:100=cyrillic);*/
+
+* {padding: 0;
+    margin: 0;
+}
+
+#header {width: 100%;
+    background-color:#2e3436;
+    color: #fff;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#content {width: 100%;
+    padding: 20px;
+    margin: 0px auto;
+}
+
+body h1{
+    font-size: 40px;
+    padding-left: 10px;
+    /* font-family: 'Philosopher&subse';*/
+}
+
+body h2{font-size: 26px;}
+body a{
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+/*-------- Previos  input file -------------*/
+.indent{
+    margin-top:8px;
+}
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.image-preview-input input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}

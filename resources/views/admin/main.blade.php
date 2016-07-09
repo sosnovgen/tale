@@ -13,6 +13,9 @@
     <script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 
+    <script src="{{asset('js/UploadFiles.js')}}"></script>
+
+
     <script>
         tinymce.init({
             plugins: "image",

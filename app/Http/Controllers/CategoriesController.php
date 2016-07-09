@@ -40,7 +40,9 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        //var_dump($_POST);
+        Category::create($request ->all());
+        //Category::create($request->all());
         return back()->with('message','Категория добавлена');
     }
 
