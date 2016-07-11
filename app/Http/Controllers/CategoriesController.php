@@ -27,6 +27,9 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function create()
     {
         return view('admin.categories.create');
@@ -40,18 +43,34 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //var_dump($_POST);
-        Category::create($request ->all());
-        //Category::create($request->all());
-        return back()->with('message','Категория добавлена');
+        if($request->hasFile('preview')) //Проверяем была ли передана картинка 
+        {
+            $root = $_SERVER['DOCUMENT_ROOT']."/tale/public/images"; //Путь к папке 'image'
+            $img_root = ($root.'/categories'); //Путь к папке с для категорий.
+
+            if (!file_exists($img_root)) //Если такой папки нет, то
+                {
+                    mkdir($img_root); //создать её.
+                }
+
+            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
+            $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/categories/
+            $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
+            $all['preview'] = "/tale/public/images/categories/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+
+            Category::create($all); //сохраняем массив в базу*/
+        }
+        else
+        {      
+            //var_dump($request-> file('preview'));
+            Category::create($request ->all()); // если картинка не передана, то сохраняем запрос
+        }
+
+        Session::flash('message', 'Категория сохранена!');
+        return Redirect::to('/admin');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //

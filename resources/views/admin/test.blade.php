@@ -1,22 +1,49 @@
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <!-- image-preview-filename input [CUT FROM HERE]-->
-                <div class="input-group image-preview">
-                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                <span class="input-group-btn">
-                    <!-- image-preview-clear button -->
-                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                        <span class="glyphicon glyphicon-remove"></span> Clear
-                    </button>
-                    <!-- image-preview-input -->
-                    <div class="btn btn-default image-preview-input">
-                        <span class="glyphicon glyphicon-folder-open"></span>
-                        <span class="image-preview-input-title">Выбрать</span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+@extends('admin.main')
+@section('content')
+
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Создать категорию</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form method="POST" action="{{action('CategoriesController@store')}}" class="form-group" enctype="multipart/form-data"/>
+                    <div class="col-xs-4">
+                        <label for="ex3">Название категории</label>
+                        <input class="form-control" name="title" id="ex3" type="text">
+                        <br>
+
+                        <label for="ex4">Картинка</label>
+                        <input type="file" name="preview" >
+                        {{--@include('admin.upload')--}}
+
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <br>
+                        <button type="submit" class="btn btn-default">Сохранить</button>
+
                     </div>
-                </span>
-                </div><!-- /input-group image-preview [TO HERE]-->
+
+                    @if(Session::has('message'))
+                    {{Session::get('message')}}
+                    @endif
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
+
     </div>
+</div>
+
+@stop

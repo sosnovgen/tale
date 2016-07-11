@@ -11,7 +11,7 @@
 |
 */
 
-
+//--------------------------------------------------------------
 Route::group(['prefix'=>'admin'], function()
 
 {
@@ -21,12 +21,14 @@ Route::group(['prefix'=>'admin'], function()
         //return "Заглушка для admin страницы";
     });
 
+//-------------------------------------------------------
     Route::get('/test', function()
     {
         return view('admin.test');
         //return "Заглушка для admin страницы";
     });
 
+//-------------------------------------------------------
     Route::get('/categories/{id}/delete',
         ['as' => 'categories.predelete',
             'uses' => 'CategoriesController@delete']);
@@ -35,6 +37,7 @@ Route::group(['prefix'=>'admin'], function()
         ['as' => 'articles.predelete',
             'uses' => 'ArticlesController@delete']);
 
+//--------------------------------------------------------------------------
     Route::get('comments','CommentsController@show');
     Route::get('comments/delete/{id}','CommentsController@delete');
     Route::get('comments/published/{id}','CommentsController@published');
