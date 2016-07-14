@@ -11,6 +11,9 @@
 |
 */
 
+
+
+
 //--------------------------------------------------------------
 Route::group(['prefix'=>'admin'], function()
 
@@ -31,11 +34,22 @@ Route::group(['prefix'=>'admin'], function()
 //-------------------------------------------------------
     Route::get('/categories/{id}/delete',
         ['as' => 'categories.predelete',
-            'uses' => 'CategoriesController@delete']);
+         'uses' => 'CategoriesController@delete']);
 
     Route::get('/articles/{id}/delete',
         ['as' => 'articles.predelete',
-            'uses' => 'ArticlesController@delete']);
+         'uses' => 'ArticlesController@delete']);
+
+//--------------------------------------------------------
+
+    Route::delete('/cat/{id}',
+    ['as' => 'cat',
+     'uses' => 'CategoriesController@destroy']);
+
+    Route::delete('/group/{id}',
+        ['as' => 'group',
+       'uses' => 'GroupsController@destroy']);
+
 
 //--------------------------------------------------------------------------
     Route::get('comments','CommentsController@show');
@@ -45,5 +59,6 @@ Route::group(['prefix'=>'admin'], function()
     Route::resource('articles','ArticlesController');
     Route::resource('pages','PagesController');
     Route::resource('categories','CategoriesController');
+    Route::resource('groups','GroupsController');
 
 });

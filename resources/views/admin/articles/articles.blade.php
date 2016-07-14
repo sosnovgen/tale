@@ -30,3 +30,4 @@
         {{Session::get('message')}}
     @endif
 @stop
+

@@ -115,17 +115,13 @@ class CategoriesController extends Controller
         $category->delete();
 
         Session::flash('message', 'Категория удалена!');
-        return Redirect::to('/adminzone/categories');
-
-
-       //return back()->with('message', 'Категория '.$category->title.'удалена');
-      //  return back()->with('message','Категория удалена');
+        return Redirect::to('/admin/categories');
     }
   
     public function delete($id)
     {
         $category = Category::find($id);
-        return view('admin.categories.delete', ['category' => $category]);
+        return view('admin.categories.categories#myModal_2', ['category' => $category]);
         
     }
 
