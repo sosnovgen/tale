@@ -4,43 +4,78 @@
     <div class="container">
      <div class="col-md-6">
         <form role="form"
-        method="POST" action="{{action('ArticlesController@store')}}" enctype="multipart/form-data">
+            method="POST" action="{{action('ArticlesController@store')}}" enctype="multipart/form-data">
 
-            <label for="file">Просмотр</label>
-            <input type="file" name="preview" ><br>
+            {{--<label for="file">Просмотр</label>
+            <input type="file" name="preview" ><br>--}}
+            <div class="row">
+                <div class="col-md-6">
+                    <label >Название Товара</label>
+                    <input type="text" name="title" class="form-control"><br>
+                </div>
 
-            <label for="text">Название статьи</label>
-            <input type="text" name="title" class="form-control"><br>
+                <div class="col-md-6">
+                    <label>Картинка</label>
+                    <input type="file" name="preview" class="filestyle" data-buttonText=" Выбрать">
 
-            Текст статьи:<br>
-            <textarea name="content"></textarea><br>
-        {{--<textarea name="content" id="editor"></textarea><br>--}}
+                </div>
+            </div>
 
-            <label for="category_id">Категория</label>
-            <select name="category_id" class="form-control">
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
 
-            @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->title}}</option>
-            @endforeach
 
-        </select>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="category_id">Категория</label>
+                    <select name="category_id" class="form-control">
+
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="group_id">Группа</label>
+                    <select name="group_id" class="form-control">
+
+                        @foreach($groups as $group)
+                            <option value="{{$group->id}}">{{$group->title}}</option>
+                        @endforeach
+
+                    </select>
+
+                </div>
+            </div>
+
 
         <br>
 
-        <label for="comments_enable">Разрешить комментарии?</label>
-        <select name="comments_enable" class="form-control">
-            <option value="1">Да</option>
-            <option value="0">Нет</option>
-        </select>
-            <br>
+         <div class="row">
+             <div class="col-md-6">
+                <label for="comments_enable">Разрешить комментарии?</label>
+                <select name="comments_enable" class="form-control">
+                    <option value="1">Да</option>
+                    <option value="0">Нет</option>
+                </select>
+             </div>
+             
+             <div class="col-md-6">
+                <label for="public">Опубликовать?</label>
+                <select name="public" class="form-control">
+                    <option value="1">Да</option>
+                    <option value="0">Нет</option>
+                </select>
+             </div>
+         </div>
 
-        <label for="public">Опубликовать?</label>
-        <select name="public" class="form-control">
-            <option value="1">Да</option>
-            <option value="0">Нет</option>
-        </select><br>
 
-        <h2>Мета</h2>
+            <h2>Мета</h2>
 
 
         <label for="text">description:</label>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Article;
 use App\Comment;
+use App\Group;
 
 use Image;
 use Input;
@@ -24,6 +25,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles=Article::all();
+
         return view('admin.articles.articles',['articles'=>$articles]);
     }
 
@@ -35,7 +37,8 @@ class ArticlesController extends Controller
     public function create()
     {
         $categories = Category::all(); //выбираем все категории
-        return view('admin.articles.create',['categories' => $categories]);
+        $groups = Group::all(); //выбираем все группы
+        return view('admin.articles.create',['categories' => $categories], ['groups' => $groups]);
     }
 
     /**
