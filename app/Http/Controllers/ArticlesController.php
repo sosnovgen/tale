@@ -48,7 +48,7 @@ class ArticlesController extends Controller
         if($request->hasFile('preview')) //Проверяем была ли передана картинка
         {
             $root = $_SERVER['DOCUMENT_ROOT']."/tale/public/images"; //Путь к папке 'image'
-            $img_root = ($root.'/articles'); //Путь к папке с для категорий.
+            $img_root = ($root.'/articles'); //Путь к папке с картинками для товара.
 
             if (!file_exists($img_root)) //Если такой папки нет, то
             {
@@ -87,7 +87,8 @@ class ArticlesController extends Controller
     {
         $article=Article::find($id); //выбираем статью для редактирования
         $categories=Category::all(); // выбираем все категории
-        return view('admin.articles.edit',['article'=>$article,'categories'=>$categories]);
+        $groups = Group::all(); //выбираем все группы
+        return view('admin.articles.edit',['article'=>$article,'categories'=>$categories, 'groups' => $groups]);
     }
 
     /**
@@ -101,35 +102,31 @@ class ArticlesController extends Controller
     {
       $article=Article::find($id);
 
-        if($request->hasFile('preview')) //Проверяем была ли передана картинка, ведь статья может быть и без картинки.
+        if($request->hasFile('preview')) //Проверяем была ли передана картинка
         {
-            $date = date('d.m.Y'); //Текущая дата
-            $root = $_SERVER['DOCUMENT_ROOT']."/shop/public/images"; //Путь к папке 'image'
-            $img_root = ($root.'/'.$date); //Путь к папке с датой постов.
+            $root = $_SERVER['DOCUMENT_ROOT']."/tale/public/images"; //Путь к папке 'image'
+            $img_root = ($root.'/articles'); //Путь к папке с картинками для товара.
 
-        //print_r($img_root);
             if (!file_exists($img_root)) //Если такой папки нет, то
             {
-                mkdir($img_root); //Создать папку с датой.
+                mkdir($img_root); //создать её.
             }
-            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем имя файла
 
-        //echo($f_name);
-            $request-> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку с оригинальным именем
-            $all=$request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
-            $all['preview'] ="/shop/public/images/".$date."/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
+            $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/articles/
+            $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
+            $all['preview'] = "/tale/public/images/articles/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
 
             $article->update($all); //сохраняем массив в базу*/
-
         }
         else
         {
-            $article->update($request->all());
+            //var_dump($request-> file('preview'));
+            $article->update($request->all());// если картинка не передана, то сохраняем запрос
         }
 
-        Session::flash('message', 'Статья изменена!');
-        return Redirect::to('/adminzone');
-
+        Session::flash('message', 'Товар изменён!');
+        return Redirect::to('/admin');
 
     }
 

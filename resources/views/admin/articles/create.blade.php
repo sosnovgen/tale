@@ -1,5 +1,4 @@
 @extends('admin.main')
-
 @section('content')
     <div class="container">
      <div class="col-md-7">
@@ -22,8 +21,8 @@
             </div>
 
             <div class="form-group">
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <label for="comment">Описание:</label>
+                <textarea class="form-control" rows="5" id="comment" name ="content"></textarea>
             </div>
 
 

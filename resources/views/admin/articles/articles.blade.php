@@ -9,6 +9,7 @@
                 <th>Название</th>
                 <th>Категория</th>
                 <th>Группа</th>
+                <th>Цена</th>
                 <th>Действие</th>
                 <th>Действие</th>
             </tr>
@@ -23,6 +24,7 @@
                 {{--<td>{{$categories -> get($article->category_id) }}</td>--}}
                 <td>{{$article -> category -> title}}</td>
                 <td>{{$article -> group -> title}}</td>
+                <td>{{$article -> cena}}</td>
                 <td> <a href="{{action('ArticlesController@edit',['articles'=>$article->id])}}">Изменить</a></td>
                 <td><a href="{{ route('articles.predelete', $article->id)}}">Удалить</a></td>
 
