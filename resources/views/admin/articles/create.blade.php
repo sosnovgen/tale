@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-     <div class="col-md-6">
+     <div class="col-md-7">
         <form role="form"
             method="POST" action="{{action('ArticlesController@store')}}" enctype="multipart/form-data">
 
@@ -29,7 +29,7 @@
 
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <label for="category_id">Категория</label>
                     <select name="category_id" class="form-control">
 
@@ -40,7 +40,7 @@
                     </select>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <label for="group_id">Группа</label>
                     <select name="group_id" class="form-control">
 
@@ -51,6 +51,14 @@
                     </select>
 
                 </div>
+
+
+
+                <div class="col-md-2">
+                    <label >Цена</label>
+                    <input type="text" name="cena" class="form-control"><br>
+                </div>
+
             </div>
 
 
@@ -64,7 +72,7 @@
                     <option value="0">Нет</option>
                 </select>
              </div>
-             
+
              <div class="col-md-6">
                 <label for="public">Опубликовать?</label>
                 <select name="public" class="form-control">
