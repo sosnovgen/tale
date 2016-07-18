@@ -50,6 +50,9 @@ Route::group(['prefix'=>'admin'], function()
         ['as' => 'group',
        'uses' => 'GroupsController@destroy']);
 
+    Route::delete('/artic/{id}',
+        ['as' => 'artic',
+       'uses' => 'ArticlesController@destroy']);
 
 //--------------------------------------------------------------------------
     Route::get('comments','CommentsController@show');

@@ -141,7 +141,7 @@ class ArticlesController extends Controller
 
 
         Session::flash('message', 'Статья удалена!');
-        return Redirect::to('/adminzone/articles');
+        return Redirect::to('/admin/articles');
 
     }
 
