@@ -42,8 +42,11 @@ $(document).ready(function() {
             //alert(11111111);
             var id = $(this).attr("href"); //Получить текст ссылки из таб. "categories"
             var href = 'group/'+id; //Сформировать ссылку для AJAX
-            var _parent = $(this).parent().parent();
-            var token = $('#token-keeper_2').data("token"); //Строка таблицы <TR>
+            var _parent = $(this).parent().parent(); //Получить предка (строка <TR>)
+            //Получить ссылку на картинку (где лежит?)
+            var previwe = $(this).parent().prev().prev().children('img').attr("src");
+            alert(previwe);
+            var token = $('#token-keeper_2').data("token");
 
             confirm_var = confirm('Удалить группу?'); //запрашиваем подтверждение на удаление
             if (!confirm_var) {

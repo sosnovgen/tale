@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{$group->id}}</td>
                     <td><img width=40 height=40 src="{{$group->preview}}"></td>
-                    <td>{{$group->title}}</td>
+                    <td >{{$group->title}}</td>
                     <td><a class="dig" href="{{$group->id}}" >Удалить</a></td>
                 </tr>
             @endforeach

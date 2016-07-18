@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use Redirect;
+use Storage;
 use App\Group;
 use App\Http\Requests;
 
@@ -54,8 +55,19 @@ class GroupsController extends Controller
 
     public function destroy($id)
         {
+
             $group = Group::find($id);
+            $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
+            $disk->delete($group -> preview);
             $group -> delete();
+
+
+            /*$disk = Storage::disk('my_public');
+
+
+            $disk -> delete($group -> preview);*/
+
+
 
             Session::flash('message', 'Группа удалена!');
             return Redirect::to('/admin/groups');
