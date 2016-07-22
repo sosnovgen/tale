@@ -65,3 +65,10 @@ Route::group(['prefix'=>'admin'], function()
     Route::resource('groups','GroupsController');
 
 });
+
+//Route::get('/', 'FrontController@index');
+Route::get('/show/{id}','FrontController@show');
+Route::get('/', 'FrontController@index');
+Route::get('/cart', function() {
+    return view('site.cart');
+});    

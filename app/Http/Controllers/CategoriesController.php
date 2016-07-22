@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use Session;
 use Redirect;
+use Storage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -112,6 +113,11 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category=Category::find($id);
+        $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
+        if ($disk -> exists($category -> preview)) //роверка на существование
+        {
+            $disk->delete($category->preview); // Удалить файл изображения
+        }
         $category->delete();
 
         Session::flash('message', 'Категория удалена!');

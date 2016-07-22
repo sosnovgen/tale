@@ -44,8 +44,8 @@ $(document).ready(function() {
             var href = 'group/'+id; //Сформировать ссылку для AJAX
             var _parent = $(this).parent().parent(); //Получить предка (строка <TR>)
             //Получить ссылку на картинку (где лежит?)
-            var previwe = $(this).parent().prev().prev().children('img').attr("src");
-            alert(previwe);
+            /*var previwe = $(this).parent().prev().prev().children('img').attr("src");
+            alert(previwe);*/
             var token = $('#token-keeper_2').data("token");
 
             confirm_var = confirm('Удалить группу?'); //запрашиваем подтверждение на удаление

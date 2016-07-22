@@ -21,7 +21,6 @@
                 <td>{{$article->id}}</td>
                 <td><img width=40 height=40 src="{{$article->preview}}"></td>
                 <td>{{$article -> title}}</td>
-                {{--<td>{{$categories -> get($article->category_id) }}</td>--}}
                 <td>{{$article -> category -> title}}</td>
                 <td>{{$article -> group -> title}}</td>
                 <td>{{$article -> cena}}</td>

@@ -58,15 +58,11 @@ class GroupsController extends Controller
 
             $group = Group::find($id);
             $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
-            $disk->delete($group -> preview);
-            $group -> delete();
-
-
-            /*$disk = Storage::disk('my_public');
-
-
-            $disk -> delete($group -> preview);*/
-
+            if ($disk -> exists($group -> preview)) //Проверка на существование
+                {
+                    $disk->delete($group->preview); // Удалить файл изображения
+                }
+            $group->delete(); //Удалить строку из БД
 
 
             Session::flash('message', 'Группа удалена!');

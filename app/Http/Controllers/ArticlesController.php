@@ -7,6 +7,7 @@ use App\Category;
 use App\Article;
 use App\Comment;
 use App\Group;
+use Storage;
 
 use Image;
 use Input;
@@ -136,8 +137,12 @@ class ArticlesController extends Controller
         $Comms -> delete();
 
         $article=Article::find($id);
+        $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
+        if ($disk -> exists($article -> preview)) //Проверка на существование
+        {
+            $disk->delete($article->preview); // Удалить файл изображения
+        }
         $article->delete();
-        //$article->comments()->delete();
 
 
         Session::flash('message', 'Статья удалена!');
