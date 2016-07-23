@@ -38,10 +38,9 @@
 
 <!-- Page Content -->
 <div class="container">
-
     <div class="row">
 
-        <div class="col-md-3 productbox">
+        <div class="col-md-2 productbox">
             <p class="lead">Категория</p>
             <div class="list-group text23">
                 @foreach ($categories as $category)
@@ -53,9 +52,8 @@
                 <a href="#" class="list-group-item">Category 3</a>--}}
             </div>
         </div>
-
+        <div class="col-md-1"></div>
         <div class="col-md-9">
-
             <div class="row carousel-holder">
 
                 <div class="col-md-12 productbox">
@@ -89,12 +87,13 @@
 
             {{-- Карточка товара --}}
             @foreach ($articles as $article)
-                <div class="col-md-4 column productbox text23">
-
+                <div class="col-md-4" >
+                   <div class="productbox text23">
                     <img src="{{$article -> preview}}" class="img-responsive">
                     <div class="producttitle">{{$article -> title}}</div>
                     <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm " role="button">Корзина</a></div>
                     <div class="pricetext">£8.95</div></div>
+                   </div>
 
                 </div>
             @endforeach
