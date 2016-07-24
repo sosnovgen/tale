@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -34,5 +35,17 @@ class FrontController extends Controller
     {
         return view('site.page');
     }
+
+    //Добавление товара в корзину
+    public function session(Request $request, $id)
+        {
+            $pick = session('sale');                    //Взять все записи массива.
+            if (!in_array($id, $pick)) {                //Проверить: не был выбран ранее
+              $request->session()->push('sale',$id);    //Добавить товар в массив
+            }
+
+            return Redirect::to('/');
+
+        }
 
 }

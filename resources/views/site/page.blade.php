@@ -91,7 +91,7 @@
                    <div class="productbox text23">
                     <img src="{{$article -> preview}}" class="img-responsive">
                     <div class="producttitle">{{$article -> title}}</div>
-                    <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm " role="button">Корзина</a></div>
+                    <div class="productprice"><div class="pull-right"><a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-danger btn-sm " role="button">Корзина</a></div>
                     <div class="pricetext">£8.95</div></div>
                    </div>
 
@@ -121,7 +121,7 @@
             </div>--}}
 
     </div>
-
+</div>
 </div>
 <!-- /.container -->
 
@@ -140,6 +140,12 @@
 
 </div>
 <!-- /.container -->
+
+<!------ Вывести выбранных товаров  ------->
+@if (Session::has('sale'))
+    {{var_dump(session('sale'))}}
+@endif
+
 
 
 
