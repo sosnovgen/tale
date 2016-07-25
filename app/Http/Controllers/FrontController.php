@@ -38,14 +38,26 @@ class FrontController extends Controller
 
     //Добавление товара в корзину
     public function session(Request $request, $id)
+    {
+        if ($request->session()->has('sale')) //Есть массив 'sale'?
         {
-            $pick = session('sale');                    //Взять все записи массива.
-            if (!in_array($id, $pick)) {                //Проверить: не был выбран ранее
-              $request->session()->push('sale',$id);    //Добавить товар в массив
-            }
-
-            return Redirect::to('/');
-
+            $pick = session('sale');       //Взять все записи массива.
+            if (!in_array($id, $pick))     //Проверить: не был выбран ранее
+            {$request->session()->push('sale', $id); }   //Добавить товар в массив
         }
 
+        else {$request->session()-> push('sale', $id);}
+        //Добавить 1-й товар в массив}
+
+        //----------------------------------------------
+        $sales = session('sale'); //Все выбранные записи
+        foreach($sales as $sale)
+            {
+                $orders[] = Article::find($sale);
+            }
+
+        //return Redirect::to('/cart');
+        return view('site.cart', ['orders' => $orders]);
+
+    }
 }

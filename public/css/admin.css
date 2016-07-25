@@ -60,3 +60,23 @@ body a{
 	font-weight:bold;
 	font-size:1.4em;
 }
+
+/*-------- Корзина ----------*/
+.outbor{
+    border:1px;
+    /*padding:10px;*/
+    background-color: white;
+}
+
+.cart-header{
+    padding:10px;
+    background-color: #5cb85c;
+    font-size: large;
+    color: white;
+}
+.input_44{
+    width: 10%;
+}
+.input_45{
+   width: 80%;
+}
