@@ -72,7 +72,7 @@ $(document).ready(function() {
     //-------- Удаление товара ---------------
     $('td > .art_del').click(function (event) {
         event.preventDefault();
-        alert(9898);
+        //alert(9898);
         var id = $(this).attr("href"); //Получить текст ссылки из таб. "categories"
         var href = 'artic/'+id; //Сформировать ссылку для AJAX
         var _parent = $(this).parent().parent();
@@ -100,8 +100,20 @@ $(document).ready(function() {
 
     })   
     
-    
-    
+    //---------- Сумма товара --------------
+    //При изменении поля INPUT менять поле "Сумма"
+    $('td > input').change(function (event) {
+
+        // var kol = document.getElementById("in45").value;
+        //alert(kol);
+        var kol = $(this).val(); //шт.
+        var cena = $(this).parent().prev().text();    //цена товара.
+        var summ = $(this).parent().next().text(kol * cena); //Сумма
+
+
+    })
+
+
 
 })
 

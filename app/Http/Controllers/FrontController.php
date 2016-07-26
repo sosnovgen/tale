@@ -39,19 +39,22 @@ class FrontController extends Controller
     //Добавление товара в корзину
     public function session(Request $request, $id)
     {
+        //$request->session()->flush(); //чистить сессию.
+
         if ($request->session()->has('sale')) //Есть массив 'sale'?
         {
             $pick = session('sale');       //Взять все записи массива.
             if (!in_array($id, $pick))     //Проверить: не был выбран ранее
-            {$request->session()->push('sale', $id); }   //Добавить товар в массив
+                $request->session()->push('sale.'.$id, 1);   //Добавить товар в массив
         }
 
-        else {$request->session()-> push('sale', $id);}
+        else {$request->session()->push('sale.'.$id, 1);}
         //Добавить 1-й товар в массив}
 
         //----------------------------------------------
         $sales = session('sale'); //Все выбранные записи
-        foreach($sales as $sale)
+        //print_r($sales);
+        foreach($sales as $sale => $id)
             {
                 $orders[] = Article::find($sale);
             }
@@ -59,5 +62,9 @@ class FrontController extends Controller
         //return Redirect::to('/cart');
         return view('site.cart', ['orders' => $orders]);
 
+        //$request->session()->flush();
+        //return view('admin.test');
+
     }
 }
+

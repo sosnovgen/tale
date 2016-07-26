@@ -80,3 +80,11 @@ body a{
 .input_45{
    width: 80%;
 }
+.hor_line_10{
+    height: 1px;
+    background-color: #999999;
+    margin: 0 20px 0 20px;
+}
+.summ{
+    height:90px;
+}
