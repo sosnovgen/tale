@@ -88,3 +88,7 @@ body a{
 .summ{
     height:90px;
 }
+.but_order{padding: 28px;}
+.price_order{padding: 30px;  }
+.arrow_cart{padding: 30px;}
+.arrow_cart a{font-size: small}

@@ -39,7 +39,7 @@ $(document).ready(function() {
         //-------- Удаление группы ---------------
         $('td > .dig').click(function (event) {
             event.preventDefault();
-            //alert(11111111);
+          
             var id = $(this).attr("href"); //Получить текст ссылки из таб. "categories"
             var href = 'group/'+id; //Сформировать ссылку для AJAX
             var _parent = $(this).parent().parent(); //Получить предка (строка <TR>)
@@ -109,11 +109,18 @@ $(document).ready(function() {
         var kol = $(this).val(); //шт.
         var cena = $(this).parent().prev().text();    //цена товара.
         var summ = $(this).parent().next().text(kol * cena); //Сумма
+        var id = $(this).parent().siblings().eq(1).text(); //ID товара
 
+        var token = $('#token-keeper_4').data("token");
+        var href = '../count/'+ id+'/'+kol; //Сформировать ссылку.
+
+        $.ajax({
+            type: "POST",
+            url: href,
+            data: { id: 'id',kol:'kol','_token': token, '_method': "POST" }
+        })
 
     })
-
-
-
+    
 })
 

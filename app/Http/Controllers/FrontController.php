@@ -36,25 +36,27 @@ class FrontController extends Controller
         return view('site.page');
     }
 
+    //-------------------------------------------------------------------
     //Добавление товара в корзину
     public function session(Request $request, $id)
     {
-        //$request->session()->flush(); //чистить сессию.
+       // $request->session()->flush(); //очистить сессию.
 
         if ($request->session()->has('sale')) //Есть массив 'sale'?
         {
             $pick = session('sale');       //Взять все записи массива.
-            if (!in_array($id, $pick))     //Проверить: не был выбран ранее
-                $request->session()->push('sale.'.$id, 1);   //Добавить товар в массив
+
+            /*if (!in_array($id, $pick))     //Проверить: не был выбран ранее*/
+            if (!$request->session() -> has('sale.'.$id))//Проверить: не был выбран ранее
+            { $request->session()->put('sale.'.$id, 1);} //Добавить товар в массив (индекс товара, кол.=1)
         }
 
-        else {$request->session()->push('sale.'.$id, 1);}
-        //Добавить 1-й товар в массив}
+        else {$request->session()->put('sale.'.$id, 1);}//Добавить 1-й товар в массив (индекс товара, кол.=1)}
 
         //----------------------------------------------
         $sales = session('sale'); //Все выбранные записи
         //print_r($sales);
-        foreach($sales as $sale => $id)
+        foreach($sales as $sale => $id) //Записать в переменную все выбранные записи.
             {
                 $orders[] = Article::find($sale);
             }
@@ -66,5 +68,18 @@ class FrontController extends Controller
         //return view('admin.test');
 
     }
+
+    //Изменить кол. товара в корзине.
+    public function count(Request $request, $id,$kol)
+    
+    {   //$id - индекс выбранного товара, $kol - количество.
+        $request->session()->put('sale.'.$id, $kol);
+        
+        //return redirect()->back() -> with('error', 'Something went wrong.');
+
+    }
+
+
+
 }
 
