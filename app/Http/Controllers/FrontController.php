@@ -66,8 +66,9 @@ class FrontController extends Controller
 
         //$request->session()->flush();
         //return view('admin.test');
-
     }
+
+
 
     //Изменить кол. товара в корзине.
     public function count(Request $request, $id,$kol)
@@ -76,7 +77,6 @@ class FrontController extends Controller
         $request->session()->put('sale.'.$id, $kol);
         
         //return redirect()->back() -> with('error', 'Something went wrong.');
-
     }
 
 

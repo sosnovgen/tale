@@ -34,7 +34,7 @@
                         <td class="input_44">
                           <input name="kol" id="in45" type="number" value="{{session('sale.'.$order -> id)}}" class="input_45">
                         </td>
-                        <td>{{$order -> cena}}</td>
+                        <td class="summ_row">{{$order -> cena}}</td>
                         <td>
                             <button class="btn  btn-secondary btn-sm"><span
                                         class="glyphicon glyphicon-remove-sign"></span> Удалить
@@ -53,10 +53,10 @@
                     <div class="row">
                         <div class="col-md-4">
 
-                        <div class="arrow_cart"><a href="../admin/test">Продолжить покупки</a></div>
+                        <div class="arrow_cart"><a href="javascript:history.back();">Продолжить покупки</a></div>
                         </div>
                         <div class="col-md-4">
-                            <div class="price_order">Стоимость заказа</div>
+                            <div class="price_order">Стоимость заказа<span id="price_summ"></span></div>
                         </div>
                         <div class="col-md-4">
                             <div id="butt" class="pull-right but_order"><a href="#" class="btn btn-info " role="button">Оформить заказ</a></div>

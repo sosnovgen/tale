@@ -88,7 +88,15 @@ body a{
 .summ{
     height:90px;
 }
+
 .but_order{padding: 28px;}
-.price_order{padding: 30px;  }
+.price_order{padding:30px 20px;  }
 .arrow_cart{padding: 30px;}
 .arrow_cart a{font-size: small}
+
+.summ_row{}
+#price_summ{
+    margin-left: 6px;
+    font-size: large;
+    color: #2e6da4;
+}

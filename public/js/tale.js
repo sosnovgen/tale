@@ -104,11 +104,9 @@ $(document).ready(function() {
     //При изменении поля INPUT менять поле "Сумма"
     $('td > input').change(function (event) {
 
-        // var kol = document.getElementById("in45").value;
-        //alert(kol);
         var kol = $(this).val(); //шт.
         var cena = $(this).parent().prev().text();    //цена товара.
-        var summ = $(this).parent().next().text(kol * cena); //Сумма
+        var summ = $(this).parent().next().text(kol * cena); //изменить сумму.
         var id = $(this).parent().siblings().eq(1).text(); //ID товара
 
         var token = $('#token-keeper_4').data("token");
@@ -120,7 +118,42 @@ $(document).ready(function() {
             data: { id: 'id',kol:'kol','_token': token, '_method': "POST" }
         })
 
+        calc_summ();//Вывести сумму выбранного товара.
     })
-    
+
+
+    $('table').ready(function(){
+        calc_row(); //Вывести сумму по строке
+        calc_summ();//Вывести общую сумму
+    });
+
+    //---------- Подсчёт суммы в строке ---------------
+    //Здесь используется цикл ".each"
+    function calc_row() {
+        $('td > input').each(function(indx, element){
+            var kol = $(element).val(); //шт.
+            var cena = $(element).parent().prev().text();    //цена товара.
+            var summ = $(element).parent().next().text(kol * parseInt(cena)); //изменить сумму.
+        })
+    }
+
+    //---------- Подсчёт и вывод суммы выбранного товара --------------
+    function calc_summ() {
+
+        var sus = [];  // переменная, которая будет хранить содержимое ячеек с ценой (с учётом кол.)
+
+        $('.summ_row').each(function(indx, element){ //записать в массив.
+            sus.push( parseInt($(element).text()));  //переведя в чифру.
+        });
+
+
+        //Используя цикл "reduce" подсчитать сумму по столбцу "Сумма".
+        var result = sus.reduce(function(sum, current) {
+            return sum + current;
+        }, 0);
+        $('#price_summ').html(result); //Вывести результат.
+        //alert( result );
+    }
+        
 })
 
