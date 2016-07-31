@@ -69,7 +69,7 @@ class FrontController extends Controller
     }
 
 
-
+    //-------------------------------------------------------
     //Изменить кол. товара в корзине.
     public function count(Request $request, $id,$kol)
     
@@ -79,6 +79,19 @@ class FrontController extends Controller
         //return redirect()->back() -> with('error', 'Something went wrong.');
     }
 
+
+
+    //-------------------------------------------------------
+    //Удаление товара из корзины
+    public function del(Request $request, $id)
+    {
+        if ($request->session()->has('sale')) //Есть массив 'sale'?
+        {
+            if ($request->session() -> has('sale.'.$id))//Проверить: ыл выбран товар с индексом ID
+            { $request->session()-> forget('sale.'.$id);} //Добавить товар в массив (индекс товара, кол.=1)
+        }
+
+    }
 
 
 }

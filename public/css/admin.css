@@ -5,21 +5,76 @@
 * {padding: 0;
     margin: 0;
 }
+.navbar-custom1 .nav > li > a{color:#e0e0dd;}
+.navbar-custom1 .nav > li > a:hover{color:white;}
+.navbar-custom1 .nav > li.active > a {color:white;}
+.navbar-custom1 .navbar-brand {color:#e0e0dd;}
 
-#header {width: 100%;
-    background-color:#2e3436;
-    color: #fff;
-    padding: 10px;
-    margin: 0 auto;
+/*-- change navbar dropdown color --*/
+.navbar-custom1 .navbar-nav .open .dropdown-menu>li>a,.navbar-custom1 .navbar-nav .open .dropdown-menu {
+    background-color: #11bb11;
+    color:#ffffff;
+}
+
+/*-------- Header  ----------------*/
+.logo_img{
+    padding: 20px 10px;
+    margin-right: 10%;
+    float: right;
+}
+.telepfon_frame{
+    width: 100%;
+    padding: 20px 10px 6px 14px;
+    float: left;
+}
+.telephon_img{
+    float: left;
+    margin-right: 8px;
+}
+.telephon_text{
+    padding-top: 6px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+
+.stylish-input-group .input-group-addon{
+    background: white !important;
+
+}
+.stylish-input-group .form-control{
+    border-right:0;
+    box-shadow:0 0 0;
+    border-color:#ccc;
+
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.input-width{
+    width: 70%;
+    padding: 4px 10px;
+}
+
+
+/*---------------------------------*/
+.lead{
+    font-family: 'PT Sans Narrow', sans-serif;
+    margin-bottom: 10px;
+    padding-left: 4px;
 }
 
 #content {width: 100%;
-    padding: 20px;
+    padding: 0px 30px;
     margin: 0px auto;
 }
 
 .text22 {font-family: 'Ubuntu', sans-serif;}
 .text23 {font-family: 'PT Sans Narrow', sans-serif;}
+
 
 body h1{
     font-size: 40px;

@@ -154,6 +154,41 @@ $(document).ready(function() {
         $('#price_summ').html(result); //Вывести результат.
         //alert( result );
     }
-        
+
+    
+    //------------- Удаление товара из корзины ----------------------
+    $('td > .btn-sm').click(function (event) {
+
+        var id = $(this).attr("onclick"); //Получить ID товара.
+        var _parent = $(this).parent().parent();
+        var href = '../del/'+id; //Сформировать ссылку для AJAX
+        var token = $('#token-keeper_4').data("token");
+
+        confirm_var = confirm('Удалить товар?'); //запрашиваем подтверждение на удаление
+        if (!confirm_var) {
+            return false;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: href,
+            data: { id: 'id','_token': token, '_method': "POST" },
+
+            success: function()
+            {
+
+                var len = $('#token-keeper_4 tr').size();
+                if (len == 2){window.location.href = "javascript:history.back()"}
+                   else {_parent.remove();} // удаляем строчку tr из таблицы
+
+                console.log('Успешно!');
+            },
+            error: function() { console.log(msg);} // в консоле  отображаем информацию об ошибки, если они есть
+
+        });
+
+     })
+
+
 })
 

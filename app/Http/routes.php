@@ -67,6 +67,8 @@ Route::group(['prefix'=>'admin'], function()
 
 });
 
+
+Route::post('del/{id}','FrontController@del');
 Route::post('count/{id}/{kol}','FrontController@count');
 Route::get('/page/{id}','FrontController@session');
 

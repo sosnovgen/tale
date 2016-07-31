@@ -1,8 +1,34 @@
 @extends('site.main')
 @section('content')
 
+    <div class="row">
+        <div class="col-md-4">
+            <img  class="logo_img" src="/tale/public/images/frontsite/logo.jpg" class="img-responsive">
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="telepfon_frame">
+                <div class="telephon_img">
+                    <img src="/tale/public/images/frontsite/phone.png" class="img-responsive ">
+                </div>
+                <div class="telephon_text">+380 (98) 5646789</div>
+            </div>
+
+            <div class="input-group stylish-input-group input-width">
+                <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+            </div>
+        </div>
+
+    </div>
+
+
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top text22" role="navigation">
+<nav class="navbar navbar-inverse navbar-custom1 text22" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -146,7 +172,9 @@
     {{var_dump(session('sale'))}}
 @endif
 
-
+@if (Session::has('counter'))
+    {{session('counter')}}
+@endif
 
 
 @stop

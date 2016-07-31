@@ -36,8 +36,7 @@
                         </td>
                         <td class="summ_row">{{$order -> cena}}</td>
                         <td>
-                            <button class="btn  btn-secondary btn-sm"><span
-                                        class="glyphicon glyphicon-remove-sign"></span> Удалить
+                            <button onclick="{{$order -> id}}"  class="btn  btn-sm"><span class="glyphicon glyphicon-remove-sign"></span> Удалить
                             </button>
                         </td>
                     </tr>
