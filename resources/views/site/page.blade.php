@@ -159,13 +159,16 @@
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+                <p>Copyright &copy; Your Website 2016</p>
             </div>
         </div>
     </footer>
 
 </div>
 <!-- /.container -->
+
+
+{{--
 
 <!------ Вывести выбранных товаров  ------->
 @if (Session::has('sale'))
@@ -175,6 +178,7 @@
 @if (Session::has('counter'))
     {{session('counter')}}
 @endif
+--}}
 
 
 @stop

@@ -60,7 +60,7 @@
 }
 
 
-/*---------------------------------*/
+/*--------------  body  -------------------*/
 .lead{
     font-family: 'PT Sans Narrow', sans-serif;
     margin-bottom: 10px;
@@ -117,6 +117,12 @@ body a{
 }
 
 /*-------- Корзина ----------*/
+
+.table_cap{
+    font-size: small;
+    color:#adadad;
+
+}
 .outbor{
     border:1px;
     /*padding:10px;*/
@@ -146,8 +152,11 @@ body a{
 
 .but_order{padding: 28px;}
 .price_order{padding:30px 20px;  }
-.arrow_cart{padding: 30px;}
-.arrow_cart a{font-size: small}
+.arrow_cart{padding: 30px 20px;}
+.arrow_cart a{
+    font-size: small;
+    text-decoration: underline;
+}
 
 .summ_row{}
 #price_summ{

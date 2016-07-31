@@ -107,7 +107,7 @@ $(document).ready(function() {
         var kol = $(this).val(); //шт.
         var cena = $(this).parent().prev().text();    //цена товара.
         var summ = $(this).parent().next().text(kol * cena); //изменить сумму.
-        var id = $(this).parent().siblings().eq(1).text(); //ID товара
+        var id = $(this).parent().siblings().eq(0).text(); //ID товара
 
         var token = $('#token-keeper_4').data("token");
         var href = '../count/'+ id+'/'+kol; //Сформировать ссылку.
@@ -115,17 +115,27 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url: href,
-            data: { id: 'id',kol:'kol','_token': token, '_method': "POST" }
+            data: { id: 'id',kol:'kol','_token': token, '_method': "POST" },
+
+            success: function()
+                {console.log('Успешно! (shange)')},
+
+            error: function()
+                { console.log(msg)} // в консоле  отображаем информацию об ошибке
+
+
         })
 
         calc_summ();//Вывести сумму выбранного товара.
     })
 
-
+//---------- Подсчёт суммы при загрузке ---------------
     $('table').ready(function(){
         calc_row(); //Вывести сумму по строке
         calc_summ();//Вывести общую сумму
     });
+
+
 
     //---------- Подсчёт суммы в строке ---------------
     //Здесь используется цикл ".each"
@@ -179,9 +189,10 @@ $(document).ready(function() {
 
                 var len = $('#token-keeper_4 tr').size();
                 if (len == 2){window.location.href = "javascript:history.back()"}
-                   else {_parent.remove();} // удаляем строчку tr из таблицы
-
-                console.log('Успешно!');
+                   else {_parent.remove(); // удаляем строчку tr из таблицы
+                   calc_summ();//Вывести общую сумму
+                }
+                console.log('Успешно! (delete)');
             },
             error: function() { console.log(msg);} // в консоле  отображаем информацию об ошибки, если они есть
 
