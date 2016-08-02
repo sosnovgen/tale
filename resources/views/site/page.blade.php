@@ -72,12 +72,11 @@
                 @foreach ($categories as $category)
                     <a href="#" class="list-group-item">{{$category->title}}</a>
                 @endforeach
-
-                {{--<a href="#" class="list-group-item">Category 1</a>
-                <a href="#" class="list-group-item">Category 2</a>
-                <a href="#" class="list-group-item">Category 3</a>--}}
             </div>
+
+            <br><a class="arrow_cart_2" href="{{action('FrontController@reset')}}">Очистить сессию</a>
         </div>
+
         <div class="col-md-1"></div>
         <div class="col-md-9">
             <div class="row carousel-holder">
@@ -91,13 +90,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="slide-image" src="/tale/public/images/carousel/slide_1.jpg" alt="">
+                                <img class="slide-image" src="images/carousel/slide_1.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="/tale/public/images/carousel/slide_2.jpg" alt="">
+                                <img class="slide-image" src="images/carousel/slide_2.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="slide-image" src="/tale/public/images/carousel/slide_3.jpg" alt="">
+                                <img class="slide-image" src="images/carousel/slide_3.jpg" alt="">
                             </div>
                         </div>
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -115,7 +114,7 @@
             @foreach ($articles as $article)
                 <div class="col-md-4" >
                    <div class="productbox text23">
-                    <img src="{{$article -> preview}}" class="img-responsive">
+                    <img src="{{asset($article -> preview)}}" class="img-responsive">
                     <div class="producttitle">{{$article -> title}}</div>
                     <div class="productprice"><div class="pull-right"><a href="{{action('FrontController@session',$article -> id,4)}}" class="btn btn-danger btn-sm " role="button">Корзина</a></div>
                     <div class="pricetext">£8.95</div></div>
@@ -170,7 +169,7 @@
 
 {{--
 
-<!------ Вывести выбранных товаров  ------->
+<!------ Вывести выбранных товаров  ------- --}}
 @if (Session::has('sale'))
     {{var_dump(session('sale'))}}
 @endif
@@ -178,7 +177,7 @@
 @if (Session::has('counter'))
     {{session('counter')}}
 @endif
---}}
+
 
 
 @stop

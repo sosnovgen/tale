@@ -40,7 +40,7 @@ class FrontController extends Controller
     //Добавление товара в корзину
     public function session(Request $request, $id)
     {
-       // $request->session()->flush(); //очистить сессию.
+        //$request->session()->flush(); //очистить сессию.
 
         if ($request->session()->has('sale')) //Есть массив 'sale'?
         {
@@ -93,6 +93,20 @@ class FrontController extends Controller
 
     }
 
-
+    //-------------------------------------------------------
+    //Оформление заказа
+    public function order()
+    {
+        return view('site.order');
+    }
+    
+    
+    //-------------------------------------------------------
+    //очистить сессию
+    public function reset(Request $request)
+    {
+        $request->session()->flush(); //очистить сессию.
+        return redirect()->back();
+    }
 }
 

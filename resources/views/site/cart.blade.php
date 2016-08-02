@@ -23,7 +23,7 @@
                     <tr>
 
                         <td>{{$order -> id}}</td>
-                        <td><img width=40 height=40 src="{{$order -> preview}}"></td>
+                        <td><img width=40 height=40 src="{{asset($order -> preview)}}"></td>
                         <td>{{$order -> title}}</td>
                         <td>{{$order -> cena}}</td>
                         <td class="input_44">
@@ -48,7 +48,7 @@
                         <div class="col-md-4">
 
                         <div class="arrow_cart">
-                            <img src="/tale/public/images/frontsite/back_arrow.jpg">
+                            <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
                             <a href="javascript:history.back();">Продолжить покупки</a>
 
                         </div>
@@ -57,7 +57,7 @@
                             <div class="price_order">Стоимость заказа<span id="price_summ"></span></div>
                         </div>
                         <div class="col-md-4">
-                            <div id="butt" class="pull-right but_order"><a href="#" class="btn btn-info " role="button">Оформить заказ</a></div>
+                            <div id="butt" class="pull-right but_order"><a href="{{asset('order')}}" class="btn btn-info " role="button">Оформить заказ</a></div>
                         </div>
 
                     </div>
@@ -72,12 +72,12 @@
     @if(Session::has('error'))
     {{Session::get('error')}}
     @endif
+--}}
 
 
-
-    <!------ Вывести выбранных товаров  ------->
+    <!------ Вывод выбранных товаров  ------->
     @if (Session::has('sale'))
     {{var_dump(session('sale'))}}
-    @endif--}}
+    @endif
 
     @stop

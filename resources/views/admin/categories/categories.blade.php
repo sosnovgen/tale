@@ -17,7 +17,7 @@
                 @foreach ($categories as $category)
                     <tr>
                         <td>{{$category->id}}</td>
-                        <td><img width=40 height=40 src="{{$category->preview}}"></td>
+                        <td><img width=40 height=40 src="{{asset($category->preview)}}"></td>
                         <td>{{$category->title}}</td>
                     {{--<td> <a href="{{ route('admin.categories.edit', $category->id) }}">Изменить</a></td>--}}
                     {{--<td><a href="{{ route('categories.predelete', $category->id)}}">Удалить</a></td>--}}

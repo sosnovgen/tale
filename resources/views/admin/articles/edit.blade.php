@@ -10,7 +10,7 @@
                     <div class="col-md-3 col-md-offset-6">
                         <label>Превью:</label>
                         @if(!empty($article->preview))
-                            <img width=80 height=80 src="{{$article->preview}}" class="img-thumbnail">
+                            <img width=80 height=80 src="{{asset($article->preview)}}" class="img-thumbnail">
                         @endif
                     </div>
                 </div>

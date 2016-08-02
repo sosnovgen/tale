@@ -27,7 +27,7 @@ class GroupsController extends Controller
     {
         if($request->hasFile('preview')) //Проверяем была ли передана картинка 
         {
-            $root = $_SERVER['DOCUMENT_ROOT']."/tale/public/images"; //Путь к папке 'image'
+            $root = public_path()."/images"; //Путь к папке 'image'
             $img_root = ($root.'/groups'); //Путь к папке с для категорий.
 
             if (!file_exists($img_root)) //Если такой папки нет, то
@@ -38,7 +38,7 @@ class GroupsController extends Controller
             $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
             $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/groups/
             $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
-            $all['preview'] = "/tale/public/images/groups/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+            $all['preview'] = "/images/groups/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
 
             Group::create($all); //сохраняем массив в базу*/
         }

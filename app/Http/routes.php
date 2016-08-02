@@ -14,7 +14,7 @@
 
 
 
-//--------------------------------------------------------------
+//----------------------- Admin ------------------------------
 Route::group(['prefix'=>'admin'], function()
 
 {
@@ -55,7 +55,7 @@ Route::group(['prefix'=>'admin'], function()
        'uses' => 'ArticlesController@destroy']);
 
     
-//--------------------------------------------------------------------------
+//-------------------------- Site -----------------------------------
     Route::get('comments','CommentsController@show');
     Route::get('comments/delete/{id}','CommentsController@delete');
     Route::get('comments/published/{id}','CommentsController@published');
@@ -67,13 +67,17 @@ Route::group(['prefix'=>'admin'], function()
 
 });
 
-
+//-------------------------------------------------------- 
 Route::post('del/{id}','FrontController@del');
 Route::post('count/{id}/{kol}','FrontController@count');
 Route::get('/page/{id}','FrontController@session');
 
+Route::get('/reset','FrontController@reset');
+Route::get('/order','FrontController@order');
+
 Route::get('/show/{id}','FrontController@show');
-Route::get('/', 'FrontController@index');
+Route::get('/','FrontController@index');
+
 Route::get('/cart', function() {
     return view('site.cart');
 

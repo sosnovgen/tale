@@ -24,13 +24,12 @@ $(document).ready(function() {
             method: "POST",
             data: {'_token': token, '_method': "DELETE" }, //не забываем передавать токен, или будет ошибка.
 
-            success: function(msg){
+            success: function(){
                 _parent.remove(); // удаляем строчку tr из таблицы
-                //alert('Категория удалена');
-            },
-                error: function(msg)
+                console.log('Успешно! (delete)'); },
+            error: function()
             {
-                console.log(msg); // в консоле  отображаем информацию об ошибки, если они есть
+                console.log('Не то!'); 
             }
         });
     })

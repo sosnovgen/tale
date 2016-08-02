@@ -157,10 +157,18 @@ body a{
     font-size: small;
     text-decoration: underline;
 }
+.arrow_cart_2 {
+    font-size: small;
+    text-decoration: underline;
+}
 
 .summ_row{}
 #price_summ{
     margin-left: 6px;
     font-size: large;
     color: #2e6da4;
+}
+/* --------- order  ----------------*/
+.icon{
+    padding: 12px 24px;
 }
