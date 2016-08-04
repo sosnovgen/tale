@@ -3,13 +3,13 @@
 
     <div class="row">
         <div class="col-md-4">
-            <img  class="logo_img" src="/tale/public/images/frontsite/logo.jpg" class="img-responsive">
+            <img  class="logo_img" src="images/frontsite/logo.jpg" class="img-responsive">
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="telepfon_frame">
                 <div class="telephon_img">
-                    <img src="/tale/public/images/frontsite/phone.png" class="img-responsive ">
+                    <img src="images/frontsite/phone.png" class="img-responsive ">
                 </div>
                 <div class="telephon_text">+380 (98) 5646789</div>
             </div>

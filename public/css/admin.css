@@ -146,6 +146,7 @@ body a{
     background-color: #999999;
     margin: 0 20px 0 20px;
 }
+
 .summ{
     height:90px;
 }
@@ -170,5 +171,31 @@ body a{
 }
 /* --------- order  ----------------*/
 .icon{
-    padding: 12px 24px;
+    padding: 22px 6px;
+}
+.kontact{
+    margin-top: 20px;
+    padding: 4px 0;
+    font-size: medium;
+    font-weight: bold;
+    color:#2ca02c;
+}
+.input_pole{
+    font-size: small;
+    color: #adadad;
+
+}
+.hor_line_12{
+    height: 1px;
+    background-color: #2ca02c;;
+    margin: 0 20px 0 20px;
+}
+.text24{
+    padding:30px 30px 30px 10px;
+    font-size: small;
+    color: #1b6d85;
+}
+.icon_tel{
+    margin: 4px 8px 4px 0;
+    float:left;
 }
