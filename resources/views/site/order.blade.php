@@ -4,7 +4,7 @@
     <div class="container" style="margin-top: 70px;">
         <div class="col-md-6 col-md-offset-3">
 
-            <form role="form"  method="POST" action="{{action('FrontController@order')}}" enctype="multipart/form-data">
+            <form role="form"  method="POST" action="{{action('FrontController@store_order')}}" enctype="multipart/form-data">
                 <div class="row outbor">
                     <div class="cart-header">Оформление заказа</div>
 
@@ -18,12 +18,12 @@
                             <br>
                             <div class="input_pole">
                                 <label >Фамилия, Имя *</label>
-                                <input type="text" name="family" class="form-control"><br>
+                                <input type="text" name="name" class="form-control"><br>
                             </div>
 
                             <div class="input_pole">
                                 <label >Номер телефона *</label>
-                                <input type="text" name="telephon" class="form-control"><br>
+                                <input type="text" name="phone" class="form-control"><br>
                             </div>
 
                             <div class="input_pole">
@@ -33,7 +33,7 @@
 
                             <div class="input_pole">
                                 <label>Коментарий к заказу</label>
-                                <textarea class="form-control" rows="5" id="note" name ="content"></textarea>
+                                <textarea class="form-control" rows="5" name ="comment"></textarea>
                             </div>
                             <br>
                             <input type="hidden" name="_token" value="{{csrf_token()}}">

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+
 use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -99,8 +101,18 @@ class FrontController extends Controller
     {
         return view('site.order');
     }
-    
-    
+
+
+    //-------------------------------------------------------
+    //Занесение заказа в базу
+    public function store_order(Request $request)
+    {
+        $all = $request -> all();
+        Order::create($all);
+        return view('admin.test');
+    }
+
+
     //-------------------------------------------------------
     //очистить сессию
     public function reset(Request $request)

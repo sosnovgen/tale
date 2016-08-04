@@ -74,6 +74,7 @@ Route::get('/page/{id}','FrontController@session');
 
 Route::get('/reset','FrontController@reset');
 Route::get('/order','FrontController@order');
+Route::post('/store_order}','FrontController@store_order');
 
 Route::get('/show/{id}','FrontController@show');
 Route::get('/','FrontController@index');
