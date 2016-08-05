@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
@@ -107,9 +108,30 @@ class FrontController extends Controller
     //Занесение заказа в базу
     public function store_order(Request $request)
     {
-        $all = $request -> all();
-        Order::create($all);
-        return view('admin.test');
+
+        //----------------- Order -------------------
+        $all = $request -> all();         //Взять данные заказа из запроса
+        $model = Order::create($all);     //Сохраняем заказ.
+        $id = $model ->id;                //Индекс сохранённой записи.
+
+        //----------------- Prodects -------------------
+        if ($request->session()->has('sale')) //Есть массив 'sale'?
+        {
+            $sales = session('sale'); //Все выбранные записи
+            foreach($sales as $sale => $id) //Записать в переменную все выбранные записи.
+            {
+                $art = Article::find($sale); //Товар из articles - выбран по ID
+                $kol = session('sale.'.$sale); //Из сессии берёь количество - по ID
+                $art['kol'] = $kol; //Добавляем в массив количество ['kol' => kol]
+                //$art['order_id'] = $order_id; //Добавить ключ из 'orders' ['order_id' => order_id]
+
+                $products[] = $art;  //Дополненную строку добавляем к массиву.
+            }
+
+           // Product::create($products); //Сохранить заказанные товары.
+
+          }
+        return view('admin.test',['products' => $products]);
     }
 
 
