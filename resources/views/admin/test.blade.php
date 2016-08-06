@@ -8,6 +8,7 @@
             <tr>
 
                 <td>{{$product -> id}}</td>
+                <td>{{$product -> order_id}}</td>
                 <td>{{$product -> title}}</td>
                 <td>{{$product -> cena}}</td>
                 <td>{{$product -> kol}}</td>

@@ -112,21 +112,36 @@ class FrontController extends Controller
         //----------------- Order -------------------
         $all = $request -> all();         //Взять данные заказа из запроса
         $model = Order::create($all);     //Сохраняем заказ.
-        $id = $model ->id;                //Индекс сохранённой записи.
+        $int = $model ->id;                //Индекс сохранённой записи.
 
         //----------------- Prodects -------------------
         if ($request->session()->has('sale')) //Есть массив 'sale'?
         {
-            $sales = session('sale'); //Все выбранные записи
-            foreach($sales as $sale => $id) //Записать в переменную все выбранные записи.
-            {
-                $art = Article::find($sale); //Товар из articles - выбран по ID
-                $kol = session('sale.'.$sale); //Из сессии берёь количество - по ID
-                $art['kol'] = $kol; //Добавляем в массив количество ['kol' => kol]
-                //$art['order_id'] = $order_id; //Добавить ключ из 'orders' ['order_id' => order_id]
 
-                $products[] = $art;  //Дополненную строку добавляем к массиву.
+            $sales = session('sale'); //все выбранные записи
+            foreach($sales as $sale => $id) //записать в переменную все выбранные записи.
+            {
+                $prod = new Product;            //новая запись для таблицы 'products'.
+                $art = Article::find($sale);    //товар из articles - выбран по ID
+                $kol = session('sale.'.$sale);  //из сессии берём количество - по ID
+
+                $prod -> title = $art -> title; //название товара
+                $prod -> count = $kol;          //добавляем количество
+                $prod -> order_id = $int;       //добавить ключ из 'orders'
+                $prod -> cena = $art -> cena;   //цена
+                $prod -> save();                //записать в таблицу.
+
+                $products[] = $prod;  //строку добавляем к массиву.
+
+
+         /*       $art['kol'] = $kol; //Добавляем в массив количество ['kol' => kol]
+                $art['order_id'] = $int; //Добавить ключ из 'orders' ['order_id' => order_id]
+                $products[] = $art;  //Дополненную строку добавляем к массиву.*/
+
             }
+
+
+
 
            // Product::create($products); //Сохранить заказанные товары.
 
