@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
+use Validator;
 
 use Redirect;
 use App\Http\Requests;
@@ -108,6 +109,19 @@ class FrontController extends Controller
     //Занесение заказа в базу
     public function store_order(Request $request)
     {
+
+
+        //---------- Validator ------------------------
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'phone' => 'required',
+            'city' => 'required',
+            ]);
+
+        if ($validator->fails()) {
+            return redirect()->back() -> with('error','Поле не заполнено!');
+
+        }
 
         //----------------- Order -------------------
         $all = $request -> all();         //Взять данные заказа из запроса

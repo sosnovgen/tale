@@ -11,7 +11,7 @@
                 <td>{{$product -> order_id}}</td>
                 <td>{{$product -> title}}</td>
                 <td>{{$product -> cena}}</td>
-                <td>{{$product -> kol}}</td>
+                <td>{{$product -> count}}</td>
 
             </tr>
         @endforeach
@@ -21,7 +21,6 @@
 
 <br>
 
-{{'O.K.'}}
 
 
 @stop

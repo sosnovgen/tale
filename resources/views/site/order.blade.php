@@ -62,19 +62,16 @@
     </div>
 
 
+    <!------ Вывод ошибки незаполнения полей  ------->
+
+    @if(Session::has('error'))
+        <div class="alert alert-danger" style="margin-left: 28px;">
+        {{Session::get('error')}}
+        </div>
+    @endif
 
 
-
-
-
-
-
-
-
-
-
-
-    <!------ Вывод выбранных товаров  ------->
+   <!------ Вывод выбранных товаров  ------->
     @if (Session::has('sale'))
         {{var_dump(session('sale'))}}
     @endif
