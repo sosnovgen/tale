@@ -3,13 +3,13 @@
     <link href='https://fonts.googleapis.com/css?family=Arimo&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <div class="row">
         <div class="col-md-4">
-            <img  class="logo_img" src="images/frontsite/logo.jpg" class="img-responsive">
+            <img  class="logo_img" src="{{asset('images/frontsite/logo.jpg')}}" class="img-responsive">
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="telepfon_frame">
                 <div class="telephon_img">
-                    <img src="images/frontsite/phone.png" class="img-responsive ">
+                    <img src="{{asset('images/frontsite/phone.png')}}" class="img-responsive ">
                 </div>
                 <div class="telephon_text">+380 (98) 5646789</div>
             </div>
@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Главная</a>
+            <a class="navbar-brand" href="{{asset('')}}">Главная</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -71,7 +71,7 @@
                     <div class="text23">
                        <ul class="list-group">
                         @foreach ($categories as $category)
-                            <a href="#" class="list-group-item"><p>{{$category->title}}</p></a>
+                            <a href="{{action('FrontController@sort',$category->id)}}" class="list-group-item"><p>{{$category->title}}</p></a>
                         @endforeach
                         </ul>
                     </div>
@@ -130,13 +130,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="images/carousel/slide_1.jpg" alt="">
+                                    <img class="slide-image" src="{{asset('images/carousel/slide_1.jpg')}}" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="images/carousel/slide_2.jpg" alt="">
+                                    <img class="slide-image" src="{{asset('images/carousel/slide_2.jpg')}}" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="images/carousel/slide_3.jpg" alt="">
+                                    <img class="slide-image" src="{{asset('images/carousel/slide_3.jpg')}}" alt="">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -156,7 +156,7 @@
                         <div class="productbox text23">
                             <img src="{{asset($article -> preview)}}" class="img-responsive">
                             <div class="producttitle">{{$article -> title}}</div>
-                            <div class="productprice"><div class="pull-right"><a href="{{action('FrontController@session',$article -> id,4)}}" class="btn btn-danger btn-sm " role="button">Корзина</a></div>
+                            <div class="productprice"><div class="pull-right"><a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-danger btn-sm " role="button">Корзина</a></div>
                                 <div class="pricetext">£8.95</div></div>
                         </div>
 

@@ -147,18 +147,7 @@ class FrontController extends Controller
 
                 $products[] = $prod;  //строку добавляем к массиву.
 
-
-         /*       $art['kol'] = $kol; //Добавляем в массив количество ['kol' => kol]
-                $art['order_id'] = $int; //Добавить ключ из 'orders' ['order_id' => order_id]
-                $products[] = $art;  //Дополненную строку добавляем к массиву.*/
-
             }
-
-
-
-
-           // Product::create($products); //Сохранить заказанные товары.
-
           }
         return view('admin.test',['products' => $products]);
     }
@@ -171,5 +160,18 @@ class FrontController extends Controller
         $request->session()->flush(); //очистить сессию.
         return redirect()->back();
     }
+
+    //-------------------------------------------------------
+    //Сортировка по категории
+    public function sort($id)
+    {
+        $categories = Category::all();
+        $articles = Article::where('category_id','=',$id) -> get(); //Выбрать записи по категории*/
+        return view('site.page',['categories' => $categories],['articles' => $articles]);
+
+    }/*$articles = Article::where('category_id','=',$id); //Выбрать записи по категории*/
+    
+    
+    
 }
 
