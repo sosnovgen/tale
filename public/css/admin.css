@@ -329,5 +329,10 @@ body a{
 
 .step{
     font-weight: bold;
+}
 
+/*-------------- google map --------------*/
+#map-container { height: 300px }
+.span4{
+    margin-left: 10px;
 }

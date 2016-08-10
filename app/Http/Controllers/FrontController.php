@@ -168,10 +168,10 @@ class FrontController extends Controller
         $categories = Category::all();
         $articles = Article::where('category_id','=',$id) -> get(); //Выбрать записи по категории*/
         return view('site.page',['categories' => $categories],['articles' => $articles]);
+    }
+    
 
-    }/*$articles = Article::where('category_id','=',$id); //Выбрать записи по категории*/
-    
-    
+
     
 }
 
