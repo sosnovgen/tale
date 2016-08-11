@@ -1,30 +1,94 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Блог</title>
-    <meta name="description" value="{{$article->meta_description}}">
-    <meta name="keywords" valeu="{{$article->meta_keywords}}">
-</head>
+@extends('site.main')
+@section('content')
 
-<body>
-<h2>{{$article->title}}</h2>
-<small>Дата статьи: {{$article->updated_at}}</small>
-<div>
-    <img img width=40 height=40 src="{{$article->preview}}">{{$article->content}}
-</div>
+    <!---------------------- Page Content ---------------------------->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="productbox">
+                    <p class="lead">Категория</p>
+                    <div class="text23">
+                        <ul class="list-group">
+                            @foreach ($categories as $category)
+                                <a href="{{action('FrontController@sort',$category->id)}}" class="list-group-item"><p>{{$category->title}}</p></a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
 
-<div class="comments">
-    <ul>
-        @foreach($comments as $comment)
-            <li>Автор: {{$comment->author}}<br>{{$comment->content}}</li>
-        @endforeach
-    </ul>
-</div>
+                <br>
 
-@if($article->comments_enable==1)
-    @include('site.comment')
-@endif
+                <div class="lead"><p>Как купить?</p></div>
+                <div class="time_frame">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge primary"><i class="step">1</i></div>
+                            <div class="timeline-panel">
+                                <p>Все просто: выбираете и покупаете через корзину</p>
+                            </div>
+                        </li>
 
-</body>
-</html>
+                        <li>
+                            <div class="timeline-badge info"><i class="step">2</i></div>
+                            <div class="timeline-panel">
+                                <p>Наш сотрудник перезвонит для подтверждения заказа</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="timeline-badge warning"><i class="step">3</i></div>
+                            <div class="timeline-panel">
+                                <p>Оперативно упакуем и отправим заказ «Новой Почтой»</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="timeline-badge success"><i class="step">4</i></div>
+                            <div class="timeline-panel">
+                                <p>Оплата наличными через карту «ПриватБанка» или наложенным платежом</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <br><a class="arrow_cart_2" href="{{action('FrontController@reset')}}">Очистить сессию</a>
+
+            </div>
+
+
+            <div class="col-md-9">
+                {{-- Название товара --}}
+                <div class="row">
+                    <div class="producttitle_cap">{{$articles -> title}}</div>
+                </div>
+
+                {{-- Картинка товара --}}
+                <div class="col-md-5" >
+                    <div class="productbox">
+                        <img src="{{asset($articles -> preview)}}" class="img-responsive">
+
+                    </div>
+                </div>
+                {{-- Описание товара --}}
+                <div class="col-md-7">
+                    <div class="productbox text25" style="padding-left: 15px;">
+                        <p>Код: {{$articles -> id}}</p>
+                        <div class="hor_line_11"></div>
+                        <p>Цену уточняйте</p>
+                        <div class="pull-left"><a href="{{action('FrontController@session',$articles -> id)}}" class="btn btn-success" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></div>
+                <br>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- /.container -->
+
+
+
+@stop

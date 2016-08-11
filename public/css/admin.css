@@ -110,10 +110,9 @@ body a{
     font-weight:bold;
 	padding:5px 0 5px 0;
 }
-
 .productprice {
 	border-top:1px solid #dadada;
-	padding-top:5px;
+	padding-top:7px;
 }
 
 .pricetext {
@@ -335,4 +334,19 @@ body a{
 #map-container { height: 300px }
 .span4{
     margin-left: 10px;
+}
+
+/*-------------- show --------------*/
+.hor_line_11{
+    height: 1px;
+    background-color: #dbdbdb;
+    margin: 10px 0 10px 0;
+}
+.text25{
+    font-family: 'Arimo', sans-serif;
+    font-size: small;
+}
+.producttitle_cap{
+    font-size:x-large;
+    padding:0 0 12px 50px;
 }

@@ -30,9 +30,10 @@ class FrontController extends Controller
     public function show($id)
     {
         
-        $comments=Article::where('public','=',1)->find($id)->comments()->where('public','=','1')->get();; // выбираем все комментарии, который относятся к статье
-        $article=Article::where('public','=',1)->find($id);
-        return view('site.show',['article'=>$article,'comments'=>$comments]);
+        /*$comments=Article::where('public','=',1)->find($id)->comments()->where('public','=','1')->get();; // выбираем все комментарии, который относятся к статье*/
+        $categories = Category::all();
+        $articles=Article::find($id);
+        return view('site.show',['articles'=>$articles], ['categories' => $categories]);
     }
 
     public function page()
