@@ -345,8 +345,28 @@ body a{
 .text25{
     font-family: 'Arimo', sans-serif;
     font-size: small;
+    font-weight: normal;
 }
 .producttitle_cap{
     font-size:x-large;
     padding:0 0 12px 50px;
+}
+.productprice_cap {
+    /*border-top:1px solid #dadada;*/
+    padding-top:12px;
+
+}
+
+.prim{
+    float: left;
+    padding: 16px 0 0px 0;
+    margin: 12px 0 12px 0;
+    border-top: solid 1px #dbdbdb;
+}
+.prim a{
+    color: #8c8c8c;
+    font-family: 'Arimo', sans-serif;
+    font-size: small;
+    font-weight: normal;
+    margin-left: -6px;
 }

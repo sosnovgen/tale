@@ -96,7 +96,7 @@
                             <a href="{{action('FrontController@show',$article->id)}}"><img src="{{asset($article -> preview)}}" class="img-responsive"></a>
                             <div class="producttitle">{{$article -> title}}</div>
                             <div class="productprice"><div class="pull-right"><a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-success btn-sm " role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></div>
-                                <div class="pricetext">£8.95</div></div>
+                            <div class="pricetext">£ {{$article -> cena}}</div></div>
                         </div>
 
                     </div>

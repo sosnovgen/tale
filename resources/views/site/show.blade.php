@@ -75,9 +75,23 @@
                     <div class="productbox text25" style="padding-left: 15px;">
                         <p>Код: {{$articles -> id}}</p>
                         <div class="hor_line_11"></div>
-                        <p>Цену уточняйте</p>
-                        <div class="pull-left"><a href="{{action('FrontController@session',$articles -> id)}}" class="btn btn-success" role="button" ><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></div>
-                <br>
+                        <div class="pricetext">£ {{$articles -> cena}} <span class="text25"> (цену уточняйте)</span></div>
+                        <div class="productprice_cap">
+                            <div class="pull-left">
+                                <a href="{{action('FrontController@session',$articles -> id)}}" class="btn btn-success " role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a>
+                            </div>
+                        </div>
+
+                        <div class="prim">
+                            <a href="#">Условия оплаты и доставки</a>
+                            <a href="#">График работы</a>
+                            <a href="#">Адрес и контакты</a>
+                            <a href="#">Условия возврата и обмена</a>
+
+                        </div>
+
+                    </div>
+
                     </div>
 
 
