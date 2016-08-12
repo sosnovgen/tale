@@ -18,7 +18,8 @@
 
                 <br>
 
-                <div class="lead"><p>Как купить?</p></div>
+                <div class="how_bay"><p>Как купить?</p></div>
+
                 <div class="time_frame">
                     <ul class="timeline">
                         <li>

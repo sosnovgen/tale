@@ -74,6 +74,12 @@
                     <a href="#">Товары</a>
                 </li>
                 <li>
+                    <a href="#">Новинка</a>
+                </li>
+                <li>
+                    <a href="#">Распродажа</a>
+                </li>
+                <li>
                     <a href="#">Контакты</a>
                 </li>
                 <li>
@@ -90,21 +96,52 @@
     @yield('content')
 </div>
 
-<div class="container">
-
-    <hr>
-
-    <!-- Footer -->
-    <footer>
+{{-- footer --}}
+<div class="footer">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2016</p>
+            <div class="col-md-5 widget">
+                <h2>О магазине</h2>
+                <article class="widget_content">
+                    <ul>
+                        <li>Продукция высокого качества</li>
+                        <li>Широкий ассортимент</li>
+                        <li>Постоянные поставки</li>
+                        <li>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </li>
+                        <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col-md-3 widget">
+                <h2>Ссылки</h2>
+                <article class="widget_content">
+                    <ul>
+                        <li>Bootsnipp</li>
+                        <li>Get Bootstrap</li>
+                        <li>My BLog</li>
+                        <li>Facebook</li>
+                        <li>Follow me</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col-md-4 widget">
+                <h2>Контакты</h2>
+                <article class="widget_content">
+                    <p>Jl. Lingkar Selatan, Kasihan, Bantul<br> Yogyakarta Indonesia 55183<br>Phone: +62 274 387656</p>
+                </article>
             </div>
         </div>
-    </footer>
-
+    </div>
 </div>
-<!-- /.container -->
+
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 widget">© 2016 | Created YourWebSite <span class="pull-right">Minimize your browser »</span>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
