@@ -28,14 +28,11 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="comment">Описание:</label>
-                        <textarea class="form-control" rows="5" name = "content"  id="comment">{{$article -> content}}</textarea>
-                    </div>
+                <textarea class="form-control" rows="5" id="editor" name ="content">{{$article -> content}}</textarea>
 
+                <br><br>
 
-
-                    <div class="row">
+                     <div class="row">
                         <div class="col-md-5">
                             <label for="category_id">Категория</label>
 

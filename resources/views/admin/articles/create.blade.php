@@ -22,10 +22,10 @@
 
             <div class="form-group">
                 <label for="comment">Описание:</label>
-                <textarea class="form-control" rows="5" id="comment" name ="content"></textarea>
+                <textarea class="form-control" rows="5" id="editor" name ="content"></textarea>
             </div>
 
-
+                <br><br>
 
             <div class="row">
                 <div class="col-md-5">

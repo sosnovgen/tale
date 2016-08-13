@@ -14,7 +14,20 @@
     <script src="{{asset('bootstrap/js/bootstrap-filestyle.min.js')}}"></script>
     <script src="{{asset('js/tale.js')}}"></script>
 
+    <script src="{{asset('tinymce/tinymce.min.js')}}"></script>
+    <script>
+        tinymce.init({
+            plugins: "image",
+            selector: '#editor',
+            selector: 'textarea',  // Ширина textarea
+            /*width : 800,*/
+            mode : "textareas",
+            force_br_newlines : true,
+            /*force_br_newlines : false,*/
+            force_p_newlines : false,
 
+        });
+    </script>
 
 </head>
 <body>
