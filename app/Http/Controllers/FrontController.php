@@ -20,7 +20,13 @@ class FrontController extends Controller
     {
         $categories = Category::all();
         $articles = Article::all();
-        return view('site.page',['categories' => $categories],['articles' => $articles]);
+        $n = 0; //Признак сортировки
+        
+        return view('site.page',[
+            'categories' => $categories,
+            'articles' => $articles,
+            'n' => $n,
+        ]);
 
         /*$articles=Article::where('public','=',1)->get();
         return view('site.index',['articles'=>$articles]);*/
@@ -129,7 +135,7 @@ class FrontController extends Controller
         $model = Order::create($all);     //Сохраняем заказ.
         $int = $model ->id;                //Индекс сохранённой записи.
 
-        //----------------- Prodects -------------------
+        //----------------- Products -------------------
         if ($request->session()->has('sale')) //Есть массив 'sale'?
         {
 
@@ -166,9 +172,15 @@ class FrontController extends Controller
     //Сортировка по категории
     public function sort($id)
     {
-        $categories = Category::all();
+        $categories = Category::all(); //Все категории
         $articles = Article::where('category_id','=',$id) -> get(); //Выбрать записи по категории*/
-        return view('site.page',['categories' => $categories],['articles' => $articles]);
+        $n = 1; //Признак сортировки
+
+        return view('site.page', [
+            'categories' => $categories, 
+            'articles' => $articles,
+            'n' => $n,
+        ]);
     }
     
 

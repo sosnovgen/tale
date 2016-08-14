@@ -29,45 +29,45 @@ $(document).ready(function() {
                 console.log('Успешно! (delete)'); },
             error: function()
             {
-                console.log('Не то!'); 
+                console.log('Не то!');
             }
         });
     })
 
 
-        //-------- Удаление группы ---------------
-        $('td > .dig').click(function (event) {
-            event.preventDefault();
-          
-            var id = $(this).attr("href"); //Получить текст ссылки из таб. "categories"
-            var href = 'group/'+id; //Сформировать ссылку для AJAX
-            var _parent = $(this).parent().parent(); //Получить предка (строка <TR>)
-            //Получить ссылку на картинку (где лежит?)
-            /*var previwe = $(this).parent().prev().prev().children('img').attr("src");
-            alert(previwe);*/
-            var token = $('#token-keeper_2').data("token");
+    //-------- Удаление группы ---------------
+    $('td > .dig').click(function (event) {
+        event.preventDefault();
 
-            confirm_var = confirm('Удалить группу?'); //запрашиваем подтверждение на удаление
-            if (!confirm_var) {
-                return false;
-            }
+        var id = $(this).attr("href"); //Получить текст ссылки из таб. "categories"
+        var href = 'group/'+id; //Сформировать ссылку для AJAX
+        var _parent = $(this).parent().parent(); //Получить предка (строка <TR>)
+        //Получить ссылку на картинку (где лежит?)
+        /*var previwe = $(this).parent().prev().prev().children('img').attr("src");
+         alert(previwe);*/
+        var token = $('#token-keeper_2').data("token");
 
-            $.ajax({
-                url:href, //url куда мы передаем delete запрос
-                method: "POST",
-                data: {'_token': token, '_method': "DELETE" }, //не забываем передавать токен, или будет ошибка.
+        confirm_var = confirm('Удалить группу?'); //запрашиваем подтверждение на удаление
+        if (!confirm_var) {
+            return false;
+        }
 
-                success: function(msg)
-                    {
-                        _parent.remove(); // удаляем строчку tr из таблицы
-                        //alert('Группа удалена');
-                    },
-                error: function(msg)
-                {console.log(msg);} // в консоле  отображаем информацию об ошибки, если они есть
+        $.ajax({
+            url:href, //url куда мы передаем delete запрос
+            method: "POST",
+            data: {'_token': token, '_method': "DELETE" }, //не забываем передавать токен, или будет ошибка.
 
-            });
+            success: function(msg)
+            {
+                _parent.remove(); // удаляем строчку tr из таблицы
+                //alert('Группа удалена');
+            },
+            error: function(msg)
+            {console.log(msg);} // в консоле  отображаем информацию об ошибки, если они есть
 
-        })
+        });
+
+    })
     //-------- Удаление товара ---------------
     $('td > .art_del').click(function (event) {
         event.preventDefault();
@@ -97,8 +97,8 @@ $(document).ready(function() {
 
         });
 
-    })   
-    
+    })
+
     //---------- Сумма товара --------------
     //При изменении поля INPUT менять поле "Сумма"
     $('td > input').change(function (event) {
@@ -117,10 +117,10 @@ $(document).ready(function() {
             data: { id: 'id',kol:'kol','_token': token, '_method': "POST" },
 
             success: function()
-                {console.log('Успешно! (shange)')},
+            {console.log('Успешно! (shange)')},
 
             error: function()
-                { console.log(msg)} // в консоле  отображаем информацию об ошибке
+            { console.log(msg)} // в консоле  отображаем информацию об ошибке
 
 
         })
@@ -164,7 +164,7 @@ $(document).ready(function() {
         //alert( result );
     }
 
-    
+
     //------------- Удаление товара из корзины ----------------------
     $('td > .btn-sm').click(function (event) {
 
@@ -188,8 +188,8 @@ $(document).ready(function() {
 
                 var len = $('#token-keeper_4 tr').size();
                 if (len == 2){window.location.href = "javascript:history.back()"}
-                   else {_parent.remove(); // удаляем строчку tr из таблицы
-                   calc_summ();//Вывести общую сумму
+                else {_parent.remove(); // удаляем строчку tr из таблицы
+                    calc_summ();//Вывести общую сумму
                 }
                 console.log('Успешно! (delete)');
             },
@@ -197,8 +197,8 @@ $(document).ready(function() {
 
         });
 
-     })
+    })
 
-
+ 
 })
 

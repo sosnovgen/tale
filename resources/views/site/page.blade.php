@@ -57,6 +57,7 @@
 
             </div>
 
+            {{------------------ Карусель --------------------}}
 
             <div class="col-md-9">
                 <div class="row carousel-holder">
@@ -88,6 +89,15 @@
                         </div>
                     </div>
 
+                </div>
+
+                <div class="row">
+                    <div class="cat_cap">
+                      {{--{{ $pp }}--}}
+                        @if(($articles->count() >0)&&($n >0))
+                            {{$articles->first()->category->title}}
+                        @endif
+                    </div>
                 </div>
 
                 {{-- Карточка товара --}}

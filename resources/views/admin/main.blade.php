@@ -26,6 +26,13 @@
             /*force_br_newlines : false,*/
             force_p_newlines : false,
 
+            toolbar: 'fontsizeselect | forecolor backcolor',
+            fontsize_formats: '8pt 9pt 10pt 11pt 12pt 14pt 16pt 18pt 24pt 36pt',
+            plugins: 'textcolor',
+
+
+
+
         });
     </script>
 
@@ -37,6 +44,17 @@
 
 <div id="content">
         @yield('content')
+</div>
+
+<br>
+
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 widget">© 2016 | Created YourWebSite <span class="pull-right">Minimize your browser »</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
