@@ -7,10 +7,12 @@
             <div class="col-md-3">
                 <div class="productbox">
                     <p class="lead">Категория</p>
-                    <div class="text23">
-                        <ul class="list-group">
+                    <div class="text23 ul_cat">
+                        <ul >
+                            <div class="line_cat"></div>
                             @foreach ($categories as $category)
-                                <a href="{{action('FrontController@sort',$category->id)}}" class="list-group-item"><p>{{$category->title}}</p></a>
+                                <li><a href="{{action('FrontController@sort',$category->id)}}" >{{$category->title}}</a></li>
+                            <div class="line_cat"></div>
                             @endforeach
                         </ul>
                     </div>
@@ -39,7 +41,7 @@
                         <li>
                             <div class="timeline-badge warning"><i class="step">3</i></div>
                             <div class="timeline-panel">
-                                <p>Оперативно упакуем и отправим заказ «Новой Почтой»</p>
+                                <p>Оперативно упакуем и отправим заказ «Почтой России»</p>
                             </div>
                         </li>
 
@@ -91,11 +93,11 @@
 
                 </div>
 
+                {{----------------- Название категории ------------------}}
                 <div class="row">
                     <div class="cat_cap">
-                      {{--{{ $pp }}--}}
                         @if(($articles->count() >0)&&($n >0))
-                            {{$articles->first()->category->title}}
+                            <p>{{$articles->first()->category->title}}</p>
                         @endif
                     </div>
                 </div>

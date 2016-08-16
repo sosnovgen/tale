@@ -89,6 +89,41 @@
     font-size: medium;
 }
 
+.productbox li a{
+    font-size: 11pt;
+    color:#636363;
+
+}
+.productbox li{
+    padding: 2px 2px;
+}
+
+.productbox li:hover{
+    background-color: #b8dabe
+}
+.productbox li a:hover{
+    text-decoration: none;
+    color: #03020b;
+}
+.productbox li a:visited{
+    text-decoration:none;
+}
+.line_cat{
+    width: 100%;
+   margin: 1px 0;
+    border-top: 1px solid #cdcdcd;
+}
+.ul_cat{
+    /*border: 1px solid #cfcfcf;*/
+    padding: 6px 0 0 0;
+}
+.active_cat {
+    background-color: #cbe1f4;
+}
+.active_cat a{
+    text-decoration:none;
+}
+
 
 body h1{
     font-size: 40px;
@@ -109,6 +144,7 @@ body a{
     padding-left: 88px;
     margin-bottom: 10px;
 }
+
 
 /*-------- Для этикетки --------------*/
 

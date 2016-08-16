@@ -39,7 +39,7 @@
                         <li>
                             <div class="timeline-badge warning"><i class="step">3</i></div>
                             <div class="timeline-panel">
-                                <p>Оперативно упакуем и отправим заказ «Новой Почтой»</p>
+                                <p>Оперативно упакуем и отправим заказ «Почтой России»</p>
                             </div>
                         </li>
 
