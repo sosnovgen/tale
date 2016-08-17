@@ -116,8 +116,6 @@ class FrontController extends Controller
     //Занесение заказа в базу
     public function store_order(Request $request)
     {
-
-
         //---------- Validator ------------------------
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -127,7 +125,6 @@ class FrontController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back() -> with('error','Поле не заполнено!');
-
         }
 
         //----------------- Order -------------------
@@ -140,6 +137,7 @@ class FrontController extends Controller
         {
 
             $sales = session('sale'); //все выбранные записи
+            $summa = 0; 
             foreach($sales as $sale => $id) //записать в переменную все выбранные записи.
             {
                 $prod = new Product;            //новая запись для таблицы 'products'.
@@ -152,11 +150,11 @@ class FrontController extends Controller
                 $prod -> cena = $art -> cena;   //цена
                 $prod -> save();                //записать в таблицу.
 
-                $products[] = $prod;  //строку добавляем к массиву.
+                //$products[] = $prod;  //строку добавляем к массиву.
 
             }
           }
-        return view('admin.test',['products' => $products]);
+        return redirect('/');
     }
 
 
@@ -182,9 +180,39 @@ class FrontController extends Controller
             'n' => $n,
         ]);
     }
-    
+    //-------------------------------------------------------
+    //Список заказов
+    public function list_orders()
+    {
+        $orders = Order::all();
+        foreach ($orders as $order)
+        {
+          $products = Product::where('order_id','=',$order -> id) -> get();
+            $summa = 0;
+            foreach($products as $product)
+            {
+                $summa = $summa +(($product -> cena)*($product -> count));
+            }
+            $order['summa'] = $summa;
+        }
 
+        //return view('admin.test',['orders' => $orders]);
+        $products = Product::all();
 
+        return view('admin.list',
+            [
+                'orders' => $orders,
+                'products' => $products,
+            ]);
+
+    }
+
+    //-------------------------------------------------------
+    //Изменить статус заказа.
+    public function edit($id)
+    {
+        
+    }  
     
 }
 

@@ -24,9 +24,9 @@
         <li  class="list-group-item"><a data-toggle="modal" href="#myModal_2">Добавить группу</a></li>
     </ul>
 
-    <h2>Отзывы</h2>
+    <h2>Заказы</h2>
         <ul class="list-group">
-            <li  class="list-group-item"><a href="{{action('CommentsController@show')}}" >Все комментарии</a></li>
+            <li  class="list-group-item"><a href="{{action('FrontController@list_orders')}}" >Все заказы</a></li>
         </ul>
     <ul>
             <h2>Страницы</h2>

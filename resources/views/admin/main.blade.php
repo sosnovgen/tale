@@ -4,6 +4,7 @@
     <meta charaset="utf-8"/>
     <title>Admin</title>
 
+    <link rel="shortcut icon" href="{{asset('images/frontsite/icon_logo_16.png')}}" type="image/png">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">

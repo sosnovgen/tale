@@ -200,14 +200,16 @@ $(document).ready(function() {
     })
 
 
+
     //------------- Выделение пункта меню "Категории" ----------------------
-    var str_cat = $('.cat_cap p').html(); //получить имя выбранной категории
-    if (str_cat.length >0)   //проверить чтобы не пустой.
-    {
-       $('li:contains("'+str_cat+'")').addClass('active_cat'); //изменить фон пункта меню.
+    $('div.summ').ready(function() {
+        var str_cat = $('.cat_cap p').html(); //получить имя выбранной категории
+        if (str_cat.length > 0)   //проверить чтобы не пустой.
+        {
+            $('li:contains("' + str_cat + '")').addClass('active_cat'); //изменить фон пункта меню.
 
-    }
-
+        }
+    })
 
 })
 

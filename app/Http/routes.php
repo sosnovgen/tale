@@ -54,6 +54,11 @@ Route::group(['prefix'=>'admin'], function()
         ['as' => 'artic',
        'uses' => 'ArticlesController@destroy']);
 
+//----------------------------------------------------------
+
+    Route::get('/list','FrontController@list_orders');
+    Route::get('/edit/{id}','FrontController@edit');
+
     
 //-------------------------- Site -----------------------------------
     Route::get('comments','CommentsController@show');

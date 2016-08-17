@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeCenaOrders extends Migration
+class OrderComplitedDrop extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ChangeCenaOrders extends Migration
     {
         Schema::table('orders', function($table)
         {
-            $table->string('status');
+            $table->dropColumn('completed');
         });
     }
 

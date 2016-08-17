@@ -3,14 +3,11 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeCenaOrders extends Migration
+class OrderStatusChange extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+ 
+       
+        public function up()
     {
         Schema::table('orders', function($table)
         {
@@ -18,11 +15,7 @@ class ChangeCenaOrders extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+ 
     public function down()
     {
         //

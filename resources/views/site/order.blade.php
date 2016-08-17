@@ -9,7 +9,7 @@
                     <div class="cart-header">Оформление заказа</div>
 
                     <div class="col-md-1  icon">
-                        <img src="images/frontsite/icon.jpg">
+                        <img src="{{asset('images/frontsite/icon.jpg')}}">
                     </div>
 
                     <div class="col-md-6">
@@ -37,6 +37,7 @@
                             </div>
                             <br>
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
+                            <input type="hidden" name="status" value="Новый">
 
                         </div>
                     </div>
