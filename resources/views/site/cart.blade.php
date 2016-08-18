@@ -31,7 +31,7 @@
                         </td>
                         <td class="summ_row">{{$order -> cena}}</td>
                         <td>
-                            <button onclick="{{$order->id}}"  class="btn  btn-sm"><span class="glyphicon glyphicon-remove-sign"></span> Удалить
+                            <button onclick="{{$order->id}}"  class="btn cart_delete btn-sm"><span class="glyphicon glyphicon-remove-sign"></span> Удалить
                             </button>
                         </td>
                     </tr>
@@ -68,16 +68,17 @@
         </div>
     </div>
 
+    <br><br>
 {{--
     @if(Session::has('error'))
     {{Session::get('error')}}
     @endif
 --}}
 
-
+{{--
     <!------ Вывод выбранных товаров  ------->
     @if (Session::has('sale'))
     {{var_dump(session('sale'))}}
-    @endif
+    @endif--}}
 
     @stop

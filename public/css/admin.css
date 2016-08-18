@@ -204,6 +204,8 @@ body a{
     margin: 0 20px 0 20px;
 }
 
+.cart_delete{}
+
 .summ{
     height:90px;
 }
@@ -477,3 +479,13 @@ body a{
 
 }
 
+
+/*------------------ Заказы  -------------------*/
+.cap_order{
+    font-size: x-large;
+    text-decoration: underline;
+    padding: 8px 0 18px 0;
+}
+.list_order_delete{
+
+}

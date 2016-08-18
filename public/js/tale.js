@@ -166,7 +166,7 @@ $(document).ready(function() {
 
 
     //------------- Удаление товара из корзины ----------------------
-    $('td > .btn-sm').click(function (event) {
+    $('td > .cart_delete').click(function (event) {
 
         var id = $(this).attr("onclick"); //Получить ID товара.
         var _parent = $(this).parent().parent();
@@ -203,12 +203,41 @@ $(document).ready(function() {
 
     //------------- Выделение пункта меню "Категории" ----------------------
     $('div.summ').ready(function() {
-        var str_cat = $('.cat_cap p').html(); //получить имя выбранной категории
+        var str_cat = $('.cat_cap p').text(); //получить имя выбранной категории
         if (str_cat.length > 0)   //проверить чтобы не пустой.
         {
             $('li:contains("' + str_cat + '")').addClass('active_cat'); //изменить фон пункта меню.
 
         }
+    })
+
+    //------------- Удаление заказа из списка ----------------------
+    $('.list_order_delete').click(function (event) {
+
+        var id = $(this).attr("onclick"); //Получить ID товара.
+        var _parent = $(this).parent().parent();
+        var href = 'list/'+id; //Сформировать ссылку для AJAX
+        var token = $('#token-keeper_9').data("token");
+
+        confirm_var = confirm('Удалить заказ?'); //запрашиваем подтверждение на удаление
+        if (!confirm_var) {
+            return false;
+        }
+
+        $.ajax({
+            url:href, //url куда мы передаем delete запрос
+            method: "POST",
+            data: {'_token': token, '_method': "DELETE" }, //не забываем передавать токен, или будет ошибка.
+
+            success: function(msg)
+            {
+                _parent.remove(); // удаляем строчку tr из таблицы
+                console.log('Успешно! (delete)');
+            },
+            error: function()
+            { console.log('Не получилось...! (delete)')}
+        });
+
     })
 
 })

@@ -62,6 +62,7 @@
         </div>
     </div>
 
+    <br>
 
     <!------ Вывод ошибки незаполнения полей  ------->
 
@@ -70,12 +71,14 @@
         {{Session::get('error')}}
         </div>
     @endif
+{{--
 
 
    <!------ Вывод выбранных товаров  ------->
     @if (Session::has('sale'))
         {{var_dump(session('sale'))}}
     @endif
+--}}
 
 
 @stop

@@ -39,6 +39,7 @@ Route::group(['prefix'=>'admin'], function()
     Route::get('/articles/{id}/delete',
         ['as' => 'articles.predelete',
          'uses' => 'ArticlesController@delete']);
+    
 
 //--------------------------------------------------------
 
@@ -56,8 +57,17 @@ Route::group(['prefix'=>'admin'], function()
 
 //----------------------------------------------------------
 
-    Route::get('/list','FrontController@list_orders');
-    Route::get('/edit/{id}','FrontController@edit');
+    Route::get('/list','ListController@list_orders');
+    Route::get('/edit/{id}','ListController@edit');
+    
+    Route::delete('/list/{id}',
+        ['as' => 'list', 
+       'uses' => 'ListController@destroy']);
+    
+    Route::get('/detals/{id}',
+        ['as' => 'detals', 
+       'uses' => 'ListController@detals']
+        );
 
     
 //-------------------------- Site -----------------------------------

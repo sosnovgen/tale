@@ -26,7 +26,7 @@
 
     <h2>Заказы</h2>
         <ul class="list-group">
-            <li  class="list-group-item"><a href="{{action('FrontController@list_orders')}}" >Все заказы</a></li>
+            <li  class="list-group-item"><a href="{{action('ListController@list_orders')}}" >Все заказы</a></li>
         </ul>
     <ul>
             <h2>Страницы</h2>

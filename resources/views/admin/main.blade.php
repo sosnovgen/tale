@@ -47,7 +47,7 @@
         @yield('content')
 </div>
 
-<br>
+<br><br>
 
 <div class="footer-bottom">
     <div class="container">

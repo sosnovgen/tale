@@ -180,39 +180,7 @@ class FrontController extends Controller
             'n' => $n,
         ]);
     }
-    //-------------------------------------------------------
-    //Список заказов
-    public function list_orders()
-    {
-        $orders = Order::all();
-        foreach ($orders as $order)
-        {
-          $products = Product::where('order_id','=',$order -> id) -> get();
-            $summa = 0;
-            foreach($products as $product)
-            {
-                $summa = $summa +(($product -> cena)*($product -> count));
-            }
-            $order['summa'] = $summa;
-        }
-
-        //return view('admin.test',['orders' => $orders]);
-        $products = Product::all();
-
-        return view('admin.list',
-            [
-                'orders' => $orders,
-                'products' => $products,
-            ]);
-
-    }
-
-    //-------------------------------------------------------
-    //Изменить статус заказа.
-    public function edit($id)
-    {
-        
-    }  
+    
     
 }
 
