@@ -7,10 +7,12 @@
             <div class="col-md-3">
                 <div class="productbox">
                     <p class="lead">Категория</p>
-                    <div class="text23">
-                        <ul class="list-group">
+                    <div class="text23 ul_cat">
+                        <ul >
+                            <div class="line_cat"></div>
                             @foreach ($categories as $category)
-                                <a href="{{action('FrontController@sort',$category->id)}}" class="list-group-item"><p>{{$category->title}}</p></a>
+                                <li><a href="{{action('FrontController@sort',$category->id)}}" >{{$category->title}}</a></li>
+                                <div class="line_cat"></div>
                             @endforeach
                         </ul>
                     </div>

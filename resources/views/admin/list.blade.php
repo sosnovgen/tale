@@ -12,8 +12,7 @@
                 <th>Телефон</th>
                 <th>Дата</th>
                 <th>Сумма</th>
-                <th>Контакты</th>
-                <th>Доставка</th>
+                <th>Подробно</th>
                 <th>Статус</th>
                 <th></th>
             </tr>
@@ -22,14 +21,13 @@
 
             @foreach ($orders as $order)
                 <tr>
-                    <td>{{$order-> id}}</td>
+                    <td>{{$order -> id}}</td>
                     <td>{{$order -> name}}</td>
                     <td>{{$order -> phone}}</td>
-                    <td>{{$order-> created_at -> Format('d-m-Y')}}</td>
-                    <td>{{$order-> summa}}
-                    <td>Действие</td>
-                    <td>Действие</td>
-                    <td>{{$order-> status}}</td>
+                    <td>{{$order -> created_at -> Format('d-m-Y')}}</td>
+                    <td>{{$order -> summa}}
+                    <td><a href="{{asset('admin/detals/')}}/{{$order -> id}}">Посмотреть</a></td>
+                    <td>{{$order -> status}}</td>
                     {{--<td> <a href="{{action('FrontController@edit',['articles'=> $order -> id])}}">Изменить</a></td>--}}
                     <td><button onclick="{{$order->id}}"  class="btn pull-right list_order_delete btn-sm"><span class="glyphicon glyphicon-remove-sign"></span> Удалить
                         </button></td>

@@ -486,6 +486,15 @@ body a{
     text-decoration: underline;
     padding: 8px 0 18px 0;
 }
-.list_order_delete{
+.list_order_delete{}
+#token-keeper_9 a{
+    font-size: 14px;
+    padding: 0;
+    text-decoration: underline;
 
+}
+.cap_011{
+    font-size: x-large;
+    margin: 10px 0;
+    color: #4c69c2;
 }

@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="input_pole">
-                                <label >Город *</label>
+                                <label >Адрес доставки *</label>
                                 <input type="text" name="city" class="form-control"><br>
                             </div>
 

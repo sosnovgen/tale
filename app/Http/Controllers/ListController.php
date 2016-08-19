@@ -62,18 +62,19 @@ class ListController extends Controller
     //-------- Сведения о заказе -------------------
     public function detals($id)
     {
-        $order = Order::find($id) -> get(); //сам заказ
-
+        $order = Order::find($id); //сам заказ
+        $status = ['Новый','Закрыт','Оплачен','Отменён'];
         return view('admin.detals',
             [
                 'order' => $order,
+                'status' => $status,
             ]);
     }
 
     //-------- Сохранить изменения в заказе -------------------
-    public function store($id)
+    public function store(Request $request,$id)
     {
-        $order = Order::find($id) -> get(); //сам заказ
+       // $order = Order::find($id); //сам заказ
         
     }   
 
