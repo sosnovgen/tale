@@ -64,18 +64,35 @@ class ListController extends Controller
     {
         $order = Order::find($id); //сам заказ
         $status = ['Новый','Закрыт','Оплачен','Отменён'];
+        
+        $products = Product::where('order_id','=',$order -> id) -> get();
+        $summa = 0;
+        foreach($products as $product)
+        {
+            $summa = $summa +(($product -> cena)*($product -> count));
+        }
+        $order['summa'] = $summa;
+        
+        
+        
+        
+        
         return view('admin.detals',
             [
                 'order' => $order,
+                'products' => $products,
                 'status' => $status,
             ]);
     }
 
     //-------- Сохранить изменения в заказе -------------------
     public function store(Request $request,$id)
-    {
-       // $order = Order::find($id); //сам заказ
-        
-    }   
+        {
+            $order = Order::find($id);
+            $order -> update($request->all()); //внести исправления
+            
+            return redirect()->back();
+       
+        }   
 
 }

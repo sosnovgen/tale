@@ -123,7 +123,7 @@ class ArticlesController extends Controller
         else
         {
             //var_dump($request-> file('preview'));
-            $article->update($request->all());// если картинка не передана, то сохраняем запрос
+            $article -> update($request->all());// если картинка не передана, то сохраняем запрос
         }
 
         Session::flash('message', 'Товар изменён!');

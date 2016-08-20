@@ -68,7 +68,7 @@ Route::group(['prefix'=>'admin'], function()
         ['as' => 'detals', 
        'uses' => 'ListController@detals']
         );
-    Route::get('/detal_store/{id}','ListController@store');
+    Route::post('/detal_store/{id}','ListController@store');
 
     
 //-------------------------- Site -----------------------------------

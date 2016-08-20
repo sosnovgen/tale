@@ -471,7 +471,6 @@ body a{
     margin-right: 8px;
     text-decoration: underline;
     -moz-text-decoration-style: dotted;
-
 }
 .context{
     color: #676662;
@@ -491,10 +490,31 @@ body a{
     font-size: 14px;
     padding: 0;
     text-decoration: underline;
-
 }
 .cap_011{
-    font-size: x-large;
-    margin: 10px 0;
+     font-size: x-large;
+     margin: 14px 0 8px 0;
+     padding: 4px 0 4px 8px;
+     color: #4c69c2;
+ }
+.cap_012{
+    font-size: large;
+    margin: 14px 0 8px 0;
+    padding: 4px 0 4px 8px;
     color: #4c69c2;
+}
+
+.text25{
+    padding: 0 24px 0 0;
+    font-size:medium;
+    float:right;
+}
+.text26{font-size:larger;}
+.arrow_detals{
+    float: right;
+    padding: 12px 4px 0 0;
+}
+.arrow_detals a{
+    font-size: small;
+    text-decoration: underline;
 }

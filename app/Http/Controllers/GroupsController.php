@@ -55,7 +55,6 @@ class GroupsController extends Controller
 
     public function destroy($id)
         {
-
             $group = Group::find($id);
             $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
             if ($disk -> exists($group -> preview)) //Проверка на существование
