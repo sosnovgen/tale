@@ -127,7 +127,7 @@ class ArticlesController extends Controller
         }
 
         Session::flash('message', 'Товар изменён!');
-        return Redirect::to('/admin');
+        return redirect()->back();
 
     }
 

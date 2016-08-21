@@ -12,7 +12,7 @@
                     <div class="col-md-6">
                         <div class="arrow_detals">
                             <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
-                            <a href="javascript:history.back();">Вернуться к списку заказов</a>
+                            <a href="{{asset('admin/list')}}">Вернуться к списку заказов</a>
                         </div>
                     </div>
                 </div>
@@ -98,9 +98,17 @@
 
             </form>
         </div>
+
+        @if(Session::has('message'))
+            <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Success!</strong> {{Session::get('message')}}.
+            </div>
+        @endif
+
     </div>
 
-    @if(Session::has('message'))
-        {{Session::get('message')}}
-    @endif
+    <br>
+
+
 @stop

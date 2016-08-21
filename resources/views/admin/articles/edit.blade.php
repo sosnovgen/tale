@@ -7,14 +7,27 @@
                 <input type="hidden" name="_method" value="put">
 
                 <div class="row">
-                    <div class="col-md-3 col-md-offset-6">
+
+                    <div class="col-md-6">
+                        <div class="arrow_edit">
+                            <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
+                            <a href="{{asset('admin/articles')}}">Вернуться  списку товаров</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
                         <label>Превью:</label>
                         @if(!empty($article->preview))
                             <img width=80 height=80 src="{{asset($article->preview)}}" class="img-thumbnail">
                         @endif
                     </div>
+
+                    <div class="col-md-3"></div>
+
                 </div>
+
                 <br>
+
                 <div class="row">
                     <div class="col-md-6">
                         <label >Название Товара</label>
@@ -127,10 +140,22 @@
                 <input type="submit" value="Сохранить" class="btn btn-default">
 
             </form>
+
+            <br>
+
+            @if(Session::has('message'))
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>Success!</strong> {{Session::get('message')}}.
+                </div>
+            @endif
+
         </div>
+
+
+
     </div>
 
-    @if(Session::has('message'))
-        {{Session::get('message')}}
-    @endif
+
+
 @stop

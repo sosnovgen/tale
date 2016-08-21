@@ -12,7 +12,7 @@
                             <div class="line_cat"></div>
                             @foreach ($categories as $category)
                                 <li><a href="{{action('FrontController@sort',$category->id)}}" >{{$category->title}}</a></li>
-                            <div class="line_cat"></div>
+                                <div class="line_cat"></div>
                             @endforeach
                         </ul>
                     </div>
@@ -104,14 +104,18 @@
 
                 {{-- Карточка товара --}}
                 @foreach ($articles as $article)
-                    <div class="col-md-4" >
+                    <div class="col-md-3" >
                         <div class="productbox text23">
                             <a href="{{action('FrontController@show',$article->id)}}"><img src="{{asset($article -> preview)}}" class="img-responsive"></a>
                             <div class="producttitle">{{$article -> title}}</div>
-                            <div class="productprice"><div class="pull-right"><a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-success btn-sm " role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a></div>
-                            <div class="pricetext">£ {{$article -> cena}}</div></div>
-                        </div>
 
+                            <div class="productprice">
+                                <div class="pull-right">
+                                    <a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a>
+                                </div>
+                                <div class="pricetext">£ {{$article -> cena}}</div>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
 

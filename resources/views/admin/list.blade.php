@@ -1,9 +1,17 @@
 @extends('admin.main')
 @section('content')
     <div class="container">
-        <div class="cap_order">
-            Заказы
+
+        <div class="row">
+            <div class="cap_order">
+                Заказы
+                <div class="arrow_list">
+                    <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
+                    <a href="{{asset('admin')}}">Вернуться в главное меню</a>
+                </div>
+            </div>
         </div>
+
         <table class="table table-striped"  id="token-keeper_9" data-token="{{ csrf_token() }}">
             <thead>
             <tr>
@@ -41,10 +49,6 @@
         </table>
 
     </div>
-
-    @if(Session::has('message'))
-        {{Session::get('message')}}
-    @endif
 
 
 

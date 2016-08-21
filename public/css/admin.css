@@ -17,6 +17,16 @@
     color:#ffffff;
 }
 
+/*------------- Admin --------------------*/
+.arrow_edit{
+    float: left;
+    padding: 12px 4px 24px 0;
+}
+.arrow_edit a{
+    font-size: small;
+    text-decoration: underline;
+}
+
 /*-------- Header  ----------------*/
 .logo_img{
     padding: 20px 10px;
@@ -96,6 +106,7 @@
 }
 .productbox li{
     padding: 2px 2px;
+    list-style-type: none;
 }
 
 .productbox li:hover{
@@ -152,20 +163,30 @@ body a{
     background-color:#ffffff;
     overflow: hidden;
 	padding:10px;
-	margin-bottom:10px;
+	margin-bottom:0px;
     -webkit-box-shadow: 0 8px 6px -6px  #999;
 	   -moz-box-shadow: 0 8px 6px -6px  #999;
 	        box-shadow: 0 8px 6px -6px #999;
 }
 
+.productbox a{
+    padding: 0;
+}
+
 .producttitle {
     /*font-weight:bold;*/
 	padding:5px 0 5px 0;
-    font-size: medium;
+    font-size: small;
+    height: 3em;
+    overflow: hidden;
+
 }
 .productprice {
-	border-top:1px solid #dadada;
+	margin-top: 3px;
+    border-top:1px solid #dadada;
 	padding-top:7px;
+}
+.productprice a{padding: 3px;
 }
 
 .pricetext {
@@ -441,10 +462,11 @@ body a{
     background-color: #dbdbdb;
     margin: 10px 0 10px 0;
 }
-.text25{
+.text27{
     font-family: 'Arimo', sans-serif;
     font-size: small;
     font-weight: normal;
+
 }
 .producttitle_cap{
     font-size:x-large;
@@ -453,9 +475,8 @@ body a{
 .productprice_cap {
     /*border-top:1px solid #dadada;*/
     padding-top:12px;
-
 }
-
+.productprice_cap a{padding: 3px;  }
 .prim{
     float: left;
     padding: 16px 0 0px 0;
@@ -467,7 +488,7 @@ body a{
     font-family: 'Arimo', sans-serif;
     font-size: small;
     font-weight: normal;
-    margin-left: -6px;
+    margin-left: 6px;
     margin-right: 8px;
     text-decoration: underline;
     -moz-text-decoration-style: dotted;
@@ -517,4 +538,20 @@ body a{
 .arrow_detals a{
     font-size: small;
     text-decoration: underline;
+}
+.arrow_list{
+    float: right;
+    padding: 0 4px 0 0;
+}
+.arrow_list a{
+    font-size: small;
+    text-decoration: underline;
+}
+
+/*----------- lessons  -------------------*/
+.lesson_01{
+    margin: 10px;
+    padding: 20px 20px;
+    color: #676662;
+    border: 1px solid #b5b4b0;;
 }

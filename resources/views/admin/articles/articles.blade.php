@@ -1,6 +1,20 @@
 @extends('admin.main')
 @section('content')
     <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="arrow_edit">
+                    <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
+                    <a href="{{asset('admin')}}">Вернуться в Admin</a>
+                </div>
+            </div>
+
+            <div class="col-md-6"></div>
+
+        </div>
+
     <table class="table table-striped"  id="token-keeper_3" data-token="{{ csrf_token() }}">
         <thead>
             <tr>

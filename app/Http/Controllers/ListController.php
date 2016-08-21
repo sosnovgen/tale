@@ -9,7 +9,7 @@ use App\Product;
 use App\Article;
 use App\Category;
 use Validator;
-
+use Session;
 use Redirect;
 
 use App\Http\Requests;
@@ -90,7 +90,8 @@ class ListController extends Controller
         {
             $order = Order::find($id);
             $order -> update($request->all()); //внести исправления
-            
+
+            Session::flash('message', 'Изменения сохранены!');
             return redirect()->back();
        
         }   
