@@ -18,11 +18,14 @@
 Route::group(['prefix'=>'admin'], function()
 
 {
-    Route::get('/', function()
+    Route::get('/',
+
+    function()
     {
         return view('admin.dashboard');
-        //return "Заглушка для admin страницы";
-    });
+    }
+
+    );
 
 //-------------------------------------------------------
     Route::get('/test', function()
@@ -105,3 +108,7 @@ Route::get('/about', function()
 {
     return view('site.about');
 });
+
+Route::auth();
+
+Route::get('/admin', 'HomeController@index');

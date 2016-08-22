@@ -77,7 +77,7 @@
 
                     {{-- Описание товара --}}
                     <div class="col-md-7">
-                        <div class="productbox" style="padding-left: 15px;">
+                        <div class="productbox" style="padding-left: 25px;">
                             <p>Код: {{$articles -> id}}</p>
                             <div class="hor_line_11"></div>
                             <div class="pricetext">£ {{$articles -> cena}} <span class="text27"> (цену уточняйте)</span></div>

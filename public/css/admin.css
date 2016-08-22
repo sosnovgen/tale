@@ -476,7 +476,8 @@ body a{
     /*border-top:1px solid #dadada;*/
     padding-top:12px;
 }
-.productprice_cap a{padding: 3px;  }
+.productprice_cap a{padding: 4px;  }
+
 .prim{
     float: left;
     padding: 16px 0 0px 0;

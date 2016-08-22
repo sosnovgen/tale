@@ -49,7 +49,11 @@
 
                 <div class="row outbor">
                     <div class="col-md-7">
-
+                        <br>
+                        <div class="arrow_edit">
+                            <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
+                            <a href="javascript:history.back();">Вернуться назад</a>
+                        </div>
                     </div>
                     <div class="col-md-5 but_order">
                         <input type="submit" value="Подтвердить заказ" class="btn btn-info pull-right" >
