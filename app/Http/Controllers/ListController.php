@@ -19,8 +19,8 @@ class ListController extends Controller
     //------------------- Список заказов  -----------------------
     public function list_orders()
     {
-        $orders = Order::all();
-        foreach ($orders as $order)
+        $orders = Order::all() -> sortByDesc('id');
+        foreach ($orders  as $order)
         {
             $products = Product::where('order_id','=',$order -> id) -> get();
             $summa = 0;
@@ -92,7 +92,7 @@ class ListController extends Controller
             $order -> update($request->all()); //внести исправления
 
             Session::flash('message', 'Изменения сохранены!');
-            return redirect()->back();
+            return redirect('admin/list');
        
         }   
 

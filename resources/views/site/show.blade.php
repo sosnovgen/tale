@@ -1,4 +1,14 @@
 @extends('site.main')
+@section('title')
+    <title>{{$articles -> title}}</title>
+    <meta name="description" content="{{$articles -> meta_description}}">
+    <meta name="keywords" content= "{{$articles -> meta_keywords}}">
+    <meta name="revisit" content="3 days" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="robots" content="noindex,follow" />
+
+@stop
+
 @section('content')
 
     <!---------------------- Page Content ---------------------------->

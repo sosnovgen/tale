@@ -135,8 +135,8 @@
 
                 <label for="text">keywords:</label>
                 <input type="text" name="meta_keywords" value = "{{$article->meta_keywords}}" class="form-control"><br>
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
 
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="submit" value="Сохранить" class="btn btn-default">
 
             </form>

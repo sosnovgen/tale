@@ -104,8 +104,8 @@
 
                 <label for="text">keywords:</label>
                 <input type="text" name="meta_keywords" class="form-control"><br>
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
 
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="submit" value="Сохранить" class="btn btn-default">
 
             </form>
@@ -120,7 +120,7 @@
                 <br><br>
                 <div style="padding-left: 32px">а) Размер по высоте или ширине не меньше 300 px и не больше 800 px.</div>
                 <br>
-                <div style="padding-left: 32px">б) Все картинки должны иметь одинаковое соотношение высоты и ширины (приблизительно), например: 300Х600, 400Х800, 350Х700.</div>
+                <div style="padding-left: 32px">б) Все картинки должны иметь одинаковое соотношение высоты и ширины (приблизительно), например: 300Х300, 400Х400, 350Х350.</div>
 
                 <br><br>
                 3. Описание товара товара не должно превышать 180 слов.

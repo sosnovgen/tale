@@ -163,7 +163,7 @@ body a{
     background-color:#ffffff;
     overflow: hidden;
 	padding:10px;
-	margin-bottom:0px;
+	margin:0 0 12px 0;
     -webkit-box-shadow: 0 8px 6px -6px  #999;
 	   -moz-box-shadow: 0 8px 6px -6px  #999;
 	        box-shadow: 0 8px 6px -6px #999;
@@ -553,6 +553,6 @@ body a{
 .lesson_01{
     margin: 10px;
     padding: 20px 20px;
-    color: #676662;
-    border: 1px solid #b5b4b0;;
+    color: #858480;
+    border: 1px solid #d0cfcb;;
 }

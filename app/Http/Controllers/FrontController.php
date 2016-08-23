@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Category;
 use Validator;
+use Session;
 
 use Redirect;
 use App\Http\Requests;
@@ -154,6 +155,8 @@ class FrontController extends Controller
 
             }
           }
+
+        Session::flash('message', 'Заказ отправлен!');
         return redirect('/');
     }
 
