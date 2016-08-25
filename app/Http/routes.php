@@ -93,15 +93,10 @@ Route::get('/show/{id}','FrontController@show');
 Route::get('/','FrontController@index');
 Route::get('/sort/{id}','FrontController@sort');
 
+Route::get('/cart', function() { return view('site.cart'); });
 
-Route::get('/cart', function() {
-    return view('site.cart');
-});
-
-Route::get('/about', function()
-{
-    return view('site.about');
-});
+Route::get('/about', function() { return view('site.about'); });
+Route::get('/contact', function() { return view('site.contact'); });
 
 //-----------------------------------------------------
 Route::auth();

@@ -556,3 +556,19 @@ body a{
     color: #858480;
     border: 1px solid #d0cfcb;;
 }
+
+/*------------ about -------------------*/
+
+.about{
+    padding: 10px;
+    color:#636363;
+    font-size: larger;
+}
+
+.about p{
+    text-indent: 0;
+}
+.img_about{
+    padding: 70px 100px 0 100px;
+
+}
