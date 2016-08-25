@@ -18,14 +18,8 @@
 Route::group(['prefix'=>'admin'], function()
 
 {
-    Route::get('/',
+    //Route::get('/', 'GateController@index');
 
-    function()
-    {
-        return view('admin.dashboard');
-    }
-
-    );
 
 //-------------------------------------------------------
     Route::get('/test', function()
@@ -109,6 +103,6 @@ Route::get('/about', function()
     return view('site.about');
 });
 
+//-----------------------------------------------------
 Route::auth();
-
 Route::get('/admin', 'HomeController@index');

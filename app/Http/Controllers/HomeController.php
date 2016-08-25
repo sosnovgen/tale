@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Gate;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Gate::denies('create')){
+            return redirect('/');
+        }
+        
         return view('admin/dashboard');
     }
 }
