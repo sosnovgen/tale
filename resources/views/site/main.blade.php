@@ -80,7 +80,7 @@
                     <a href="{{asset('/about')}}">О нас</a>
                 </li>
                 <li>
-                    <a href="#">Товары</a>
+                    <a href="{{asset('/assortiment')}}">Товары</a>
                 </li>
                 <li>
                     <a href="#">Новинка</a>

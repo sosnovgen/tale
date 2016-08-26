@@ -50,7 +50,7 @@
                         <li>
                             <div class="timeline-badge success"><i class="step">4</i></div>
                             <div class="timeline-panel">
-                                <p>Оплата наличными через карту «ПриватБанка» или наложенным платежом</p>
+                                <p>Оплата наличными через банковскую карту или наложенным платежом</p>
                             </div>
                         </li>
                     </ul>

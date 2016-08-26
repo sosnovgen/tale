@@ -90,7 +90,8 @@ Route::get('/order','FrontController@order');
 Route::post('/store_order}','FrontController@store_order');
 
 Route::get('/show/{id}','FrontController@show');
-Route::get('/','FrontController@index');
+Route::get('/','FrontController@one');
+Route::get('/assortiment','FrontController@index');
 Route::get('/sort/{id}','FrontController@sort');
 
 Route::get('/cart', function() { return view('site.cart'); });

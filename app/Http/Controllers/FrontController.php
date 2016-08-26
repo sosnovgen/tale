@@ -43,9 +43,19 @@ class FrontController extends Controller
         return view('site.show',['articles'=>$articles], ['categories' => $categories]);
     }
 
-    public function page()
+    //-----------------------------------------------
+    //Показать весь товар.
+    public function one()
     {
-        return view('site.page');
+        $categories = Category::all();
+        $articles = Article::all();
+        $n = 0; //Признак сортировки
+
+        return view('site.one',[
+            'categories' => $categories,
+            'articles' => $articles,
+            'n' => $n,
+        ]);
     }
 
     //-------------------------------------------------------------------

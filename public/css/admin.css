@@ -572,3 +572,21 @@ body a{
     padding: 70px 100px 0 100px;
 
 }
+
+/*----------- one ---------------------*/
+.center-block {
+    width: 160px;
+    margin: auto;
+}
+hr {
+    width: 64%;
+    margin: auto;
+    padding-bottom: 1px;
+    background-color: #cacaca;
+    border-bottom:2px solid #fdfdfd;
+}
+.one_text{
+    margin-top: 12px;
+    padding: 0 0 0 24px;
+    font-size: 1.2em;
+}
