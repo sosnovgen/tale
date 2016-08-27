@@ -12,11 +12,11 @@
             <script>
 
                 function init_map() {
-                    var var_location = new google.maps.LatLng(55.754015, 37.618522);
+                    var var_location = new google.maps.LatLng(55.569626, 37.576406);
 
                     var var_mapoptions = {
                         center: var_location,
-                        zoom: 14
+                        zoom: 17
                     };
 
                     var var_marker = new google.maps.Marker({
@@ -37,15 +37,14 @@
 
             <div class="col-md-3">
                 <div class="span4">
-                    <h2>Snail mail</h2>
+                    <h2>Nail5Art</h2>
                     <address>
-                        <strong>Hythe Window Cleaning</strong><br>
-                        15 Springfield Way<br>
-                        Hythe<br>
-                        Kent<br>
-                        United Kingdon<br>
-                        CT21 5SH<br>
-                        <abbr title="Phone">P:</abbr> 01234 567 890
+                        <strong>метро Дмитрия Донского</strong><br>
+                        Малыхина Оля<br>
+                        т. 8 (916) 089-20-45<br>
+                        Москва<br>
+                        Россия<br>
+                        117628<br>
                     </address>
                 </div>
             </div>

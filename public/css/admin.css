@@ -590,3 +590,14 @@ hr {
     padding: 0 0 0 24px;
     font-size: 1.2em;
 }
+/*--------------- dostavka ---------------*/
+.text28{
+    font-size:larger;
+}
+.text28 li{
+    margin-bottom: 2px;
+}
+.post_about{
+    padding: 20px 100px 70px 100px;
+
+}

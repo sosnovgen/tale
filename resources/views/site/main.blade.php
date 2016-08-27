@@ -44,7 +44,7 @@
             <div class="telephon_img">
                 <img src="{{asset('images/frontsite/phone.png')}}" class="img-responsive ">
             </div>
-            <div class="telephon_text">+380 (98) 5646789</div>
+            <div class="telephon_text">+38 (916) 089-20-45</div>
         </div>
 
         <div class="input-group stylish-input-group input-width">
@@ -92,7 +92,7 @@
                     <a href="{{asset('/contact')}}">Контакты</a>
                 </li>
                 <li>
-                    <a href="#">Доставка и оплата</a>
+                    <a href="{{asset('/dostavka')}}">Доставка и оплата</a>
                 </li>
             </ul>
         </div>
