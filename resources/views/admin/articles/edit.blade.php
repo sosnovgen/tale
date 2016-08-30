@@ -36,7 +36,7 @@
 
                     <div class="col-md-6">
                         <label>Картинка</label>
-                        <input type="file" name="preview" class="filestyle" data-buttonText=" Выбрать">
+                        <input type="file" name="preview" value="{{asset($article->preview)}} "class="filestyle" data-buttonText=" Выбрать">
 
                     </div>
                 </div>

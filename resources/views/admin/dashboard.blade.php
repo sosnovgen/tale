@@ -120,7 +120,7 @@
                     <div class="container">
                         <form method="POST" action="{{action('GroupsController@store')}}" class="form-group" enctype="multipart/form-data"/>
                         <div class="col-xs-4">
-                            <label for="ex5">Название категории</label>
+                            <label for="ex5">Название Группы</label>
                             <input class="form-control" name="title" id="ex5" type="text">
                             <br>
 

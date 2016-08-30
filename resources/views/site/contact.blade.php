@@ -8,7 +8,7 @@
 
             <!-- Include all compiled plugins (below), or include individual files as needed -->
             <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
-            <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+            <script src="http://maps.google.com/maps/api/js?key=AIzaSyBMJxIG4daAYUH7aXINT6NQAcAB-6p5kww"></script>
             <script>
 
                 function init_map() {
@@ -41,7 +41,7 @@
                     <address>
                         <strong>метро Дмитрия Донского</strong><br>
                         Малыхина Оля<br>
-                        т. 8 (916) 089-20-45<br>
+                        т. +38 (916) 089-20-45<br>
                         Москва<br>
                         Россия<br>
                         117628<br>

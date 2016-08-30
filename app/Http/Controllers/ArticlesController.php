@@ -46,30 +46,23 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        if($request->hasFile('preview')) //Проверяем была ли передана картинка
-        {
-            $root = public_path()."/images"; //Путь к папке 'image'
-            $img_root = ($root.'/articles'); //Путь к папке с картинками для товара.
+        if($request->hasFile('preview')) {
+            $img_root = 'images/articles';
 
-            if (!file_exists($img_root)) //Если такой папки нет, то
-            {
-                mkdir($img_root); //создать её.
-            }
+            $fileName = $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move($img_root, $fileName);
 
-            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
-            $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/articles/
-            $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
-            $all['preview'] = "/images/articles/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+            $all = $request->all();
+            $all['preview'] = "/images/articles/" . $fileName;
 
-            Article::create($all); //сохраняем массив в базу*/
-        }
-        else
-        {
-            //var_dump($request-> file('preview'));
-            Article::create($request ->all()); // если картинка не передана, то сохраняем запрос
+            Article::create($all);
+        } else {
+            $all = $request->all();
+            $all['preview']= "placehold.it";
+            Article::create($all);
         }
 
-        Session::flash('message', 'Товар сохранён!');
+        Session::flash('message', 'Товар сохранен!');
         return Redirect::to('/admin');
 
     }
@@ -103,31 +96,25 @@ class ArticlesController extends Controller
     {
       $article=Article::find($id);
 
-        if($request->hasFile('preview')) //Проверяем была ли передана картинка
-        {
-            $root = public_path()."/images"; //Путь к папке 'image'
-            $img_root = ($root.'/articles'); //Путь к папке с картинками для товара.
+        if($request->hasFile('preview')) {
+            $img_root = 'images/articles';
 
-            if (!file_exists($img_root)) //Если такой папки нет, то
-            {
-                mkdir($img_root); //создать её.
-            }
+            $fileName = $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move($img_root, $fileName);
 
-            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
-            $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/articles/
-            $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
-            $all['preview'] = "/images/articles/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+            $all = $request -> all();
+            $all['preview'] = "/images/articles/" . $fileName;
 
-            $article->update($all); //сохраняем массив в базу*/
+            $article -> update($all);
+
+        } else {
+            $all = $request -> all();
+          //  $all['preview']= "placehold.it";
+            $article -> update($all);
         }
-        else
-        {
-            //var_dump($request-> file('preview'));
-            $article -> update($request->all());// если картинка не передана, то сохраняем запрос
-        }
-
         Session::flash('message', 'Товар изменён!');
-        return redirect()->back();
+        return Redirect::to('/admin');
+
 
     }
 
@@ -136,16 +123,19 @@ class ArticlesController extends Controller
         $Comms = Comment::with('article');
         $Comms -> delete();
 
-        $article=Article::find($id);
-        $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
-        if ($disk -> exists($article -> preview)) //Проверка на существование
+        $article = Article::find($id);
+
+        $fileName = ($article -> preview);
+        $fileName = mb_substr($fileName,1);
+        if (is_file($fileName))
         {
-            $disk->delete($article->preview); // Удалить файл изображения
+            unlink($fileName);
         }
+
         $article->delete();
 
 
-        Session::flash('message', 'Статья удалена!');
+        Session::flash('message', 'Товар удален!');
         return Redirect::to('/admin/articles');
 
     }

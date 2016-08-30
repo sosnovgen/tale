@@ -44,29 +44,21 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasFile('preview')) //Проверяем была ли передана картинка 
-        {
-            /* public_path() = C:\wamp\www\tale\public/ */
-            $root = public_path()."/images"; //Путь к папке 'image'
-            $img_root = ($root.'/categories'); //Путь к папке с для категорий.
+        if($request->hasFile('preview')) {
+            $img_root = 'images/categories';
 
-            if (!file_exists($img_root)) //Если такой папки нет, то
-                {
-                    mkdir($img_root); //создать её.
-                }
+            $fileName = $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move($img_root, $fileName);
 
-            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
-            $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/categories/
-            $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
-            $all['preview'] = "/images/categories/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+            $all = $request->all();
+            $all['preview'] = "/images/categories/" . $fileName;
 
-            Category::create($all); //сохраняем массив в базу*/
-        }
-        else
-        {      
-            //var_dump($request-> file('preview'));
-            Category::create($request ->all()); // если картинка не передана, то сохраняем запрос
-        }
+            Category::create($all);
+        } else {
+            $all = $request->all();
+            $all['preview']= "placehold.it";
+            Category::create($all);
+	    }
 
         Session::flash('message', 'Категория сохранена!');
         return Redirect::to('/admin');
@@ -114,12 +106,14 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category=Category::find($id);
-        $disk = Storage::disk('my_public'); //Подключить диск (см. config/filesystems.php)
 
-        if ($disk -> exists($category -> preview)) //роверка на существование
-            {
-                $disk->delete($category->preview); // Удалить файл изображения
-            }
+        $fileName = ($category -> preview);
+        $fileName = mb_substr($fileName,1);
+        if (is_file($fileName))
+        {
+        unlink($fileName);  
+        }
+
         $category->delete();
 
         Session::flash('message', 'Категория удалена!');

@@ -25,27 +25,20 @@ class GroupsController extends Controller
 
     public function store(Request $request)
     {
-        if($request->hasFile('preview')) //Проверяем была ли передана картинка 
-        {
-            $root = public_path()."/images"; //Путь к папке 'image'
-            $img_root = ($root.'/groups'); //Путь к папке с для категорий.
+        if($request->hasFile('preview')) {
+            $img_root = 'images/groups';
 
-            if (!file_exists($img_root)) //Если такой папки нет, то
-            {
-                mkdir($img_root); //создать её.
-            }
+            $fileName = $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->move($img_root, $fileName);
 
-            $f_name = $request -> file('preview') -> getClientOriginalName();//определяем оригин.имя файла
-            $request -> file('preview') -> move($img_root,$f_name); //перемещаем файл в папку /images/groups/
-            $all = $request -> all(); //в переменой $all будет массив, который содержит все введенные данные в форме
-            $all['preview'] = "/images/groups/".$f_name;  // меняем значение preview на нашу ссылку, иначе в базу попадет что-то вроде /tmp/sdfWEsf.tmp
+            $all = $request->all();
+            $all['preview'] = "/images/groups/" . $fileName;
 
-            Group::create($all); //сохраняем массив в базу*/
-        }
-        else
-        {
-            //var_dump($request-> file('preview'));
-            Group::create($request ->all()); // если картинка не передана, то сохраняем запрос
+            Group::create($all);
+        } else {
+            $all = $request->all();
+            $all['preview']= "placehold.it";
+            Group::create($all);
         }
 
         Session::flash('message', 'Группа сохранена!');
@@ -56,11 +49,14 @@ class GroupsController extends Controller
     public function destroy($id)
         {
             $group = Group::find($id);
-            $disk = Storage::disk('my_public'); //Подключить диск (см. Filesystem.php)
-            if ($disk -> exists($group -> preview)) //Проверка на существование
-                {
-                    $disk->delete($group->preview); // Удалить файл изображения
-                }
+
+            $fileName = ($group -> preview);
+            $fileName = mb_substr($fileName,1);
+            if (is_file($fileName))
+            {
+                unlink($fileName);
+            }
+
             $group->delete(); //Удалить строку из БД
 
 
