@@ -167,7 +167,7 @@ class FrontController extends Controller
           }
 
         Session::flash('message', 'Заказ отправлен!');
-        return redirect('/');
+        return redirect('');
     }
 
 

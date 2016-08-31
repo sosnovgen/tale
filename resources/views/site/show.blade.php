@@ -58,7 +58,7 @@
                         <li>
                             <div class="timeline-badge success"><i class="step">4</i></div>
                             <div class="timeline-panel">
-                                <p>Оплата наличными через карту «ПриватБанка» или наложенным платежом</p>
+                                <p>Оплата наличными, через карту банка или наложенным платежом</p>
                             </div>
                         </li>
                     </ul>
@@ -81,9 +81,8 @@
                 <div class="row">
                     {{-- Картинка товара --}}
                     <div class="col-md-5" >
-                        <div class="productbox">
-                            <img src="{{asset($articles -> preview)}}" class="img-responsive">
-
+                        <div class="productbox ">
+                            <img src="{{asset($articles -> preview)}}" class="img-responsive" style="margin: auto;">
                         </div>
                     </div>
 
@@ -98,7 +97,7 @@
                                     <a href="{{action('FrontController@session',$articles -> id)}}" class="btn btn-success " role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина </a>
                                 </div>
                             </div>
-
+<br>
                             <div class="prim">
                                 <a data-toggle="modal" href="#myModal_01">Условия оплаты и доставки</a>
                                 <a href="#">График работы</a>
@@ -118,6 +117,7 @@
         </div>
     </div>
 
+        {{-------------- comment discus   -------------}}
         <div id="disqus_thread"></div>
         <script>
 

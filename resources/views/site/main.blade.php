@@ -113,11 +113,11 @@
                 <h2>О магазине</h2>
                 <article class="widget_content">
                     <ul>
+                        <li>M-in-M материалы</li>
                         <li>Продукция высокого качества</li>
                         <li>Широкий ассортимент</li>
+                        <li>Относительно недорогая</li>
                         <li>Постоянные поставки</li>
-                        <li>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae </li>
-                        <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur</li>
                     </ul>
                 </article>
             </div>
@@ -126,8 +126,8 @@
                 <article class="widget_content">
                     <ul>
                         <li>Bootsnipp</li>
-                        <li>Get Bootstrap</li>
-                        <li>My BLog</li>
+                        <li>Disqus</li>
+                        <li>Cloudinary</li>
                         <li>Facebook</li>
                         <li>Follow me</li>
                     </ul>
@@ -136,7 +136,7 @@
             <div class="col-md-4 widget">
                 <h2>Контакты</h2>
                 <article class="widget_content">
-                    <p>Jl. Lingkar Selatan, Kasihan, Bantul<br> Yogyakarta Indonesia 55183<br>Phone: +62 274 387656</p>
+                    <p> Малыхина Ольга<br> 117628 Москва<br> м. Дмитрия Донского<br> Phone: +38 (916) 089-20-45</p>
                 </article>
             </div>
         </div>

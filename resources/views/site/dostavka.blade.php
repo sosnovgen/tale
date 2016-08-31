@@ -30,10 +30,10 @@
 
                 </div>
 <br>
+                <div class="prim">
                 <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    <small>В примечании к заказу укажите способ доставки и оплаты.</small></p>
-
+                    <span>&nbsp;В примечании к заказу укажите способ доставки и оплаты.</span></p>
+                </div>
 
             </div>
 
