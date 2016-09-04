@@ -177,6 +177,18 @@ body a{
     padding: 0;
 }
 
+._image{
+    position: relative;
+}
+.news{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 100%;
+    color: #2d8ac7;
+    font-weight: bolder;
+}
+
 .producttitle {
     /*font-weight:bold;*/
 	padding:5px 0 5px 0;
@@ -204,6 +216,14 @@ body a{
 	font-size:1.4em;
     margin:0 0 0 2%;
 }
+.rub{
+    display: inline-block;
+    font-size: 24px;
+    line-height: 6px;
+    border-bottom: 2px solid ;
+    width:0.4em;
+}
+
 
 /*-------- Корзина ----------*/
 

@@ -82,7 +82,20 @@
                     {{-- Картинка товара --}}
                     <div class="col-md-5" >
                         <div class="productbox ">
-                            <img src="{{asset($articles -> preview)}}" class="img-responsive" style="margin: auto;">
+                            <div class="_image">
+                                <img src="{{asset($articles -> preview)}}" class="img-responsive"  style="margin: auto;">
+
+                                @if ($articles -> group -> title == 'новинка'){
+
+                                    <img src="{{asset('images/frontsite/new2.png')}}" class="news">
+                                }
+                                @else
+                                    {
+                                    <img src="{{asset('images/frontsite/blank.png')}}" class="news">
+                                    }
+                                @endif
+
+                            </div>
                         </div>
                     </div>
 
@@ -91,7 +104,7 @@
                         <div class="productbox" style="padding-left: 25px;">
                             <p>Код: {{$articles -> id}}</p>
                             <div class="hor_line_11"></div>
-                            <div class="pricetext">£ {{$articles -> cena}} <span class="text27"> (цену уточняйте)</span></div>
+                            <div class="pricetext">p. {{$articles -> cena}} <span class="text27"> (цену уточняйте)</span></div>
                             <div class="productprice_cap">
                                 <div class="pull-left">
                                     <a href="{{action('FrontController@session',$articles -> id)}}" class="btn btn-success " role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина </a>

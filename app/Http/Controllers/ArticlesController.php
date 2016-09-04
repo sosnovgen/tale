@@ -29,7 +29,7 @@ class ArticlesController extends Controller
         $categories = Category::all();
         $groups = Group::all();
 
-        return view('admin.articles.articles',['articles'=>$articles],['categories'=>$categories], ['groups'=>$groups]);
+        return view('admin.articles.articles', ['articles' => $articles], ['categories' => $categories], ['groups' => $groups]);
     }
 
     /**
@@ -41,12 +41,12 @@ class ArticlesController extends Controller
     {
         $categories = Category::all(); //выбираем все категории
         $groups = Group::all(); //выбираем все группы
-        return view('admin.articles.create',['categories' => $categories], ['groups' => $groups]);
+        return view('admin.articles.create', ['categories' => $categories], ['groups' => $groups]);
     }
 
     public function store(Request $request)
     {
-        if($request->hasFile('preview')) {
+        if ($request->hasFile('preview')) {
             $img_root = 'images/articles';
 
             $fileName = $request->file('preview')->getClientOriginalName();
@@ -58,7 +58,7 @@ class ArticlesController extends Controller
             Article::create($all);
         } else {
             $all = $request->all();
-            $all['preview']= "placehold.it";
+            $all['preview'] = "placehold.it";
             Article::create($all);
         }
 
@@ -66,6 +66,7 @@ class ArticlesController extends Controller
         return Redirect::to('/admin');
 
     }
+
     public function show($id)
     {
         //
@@ -74,43 +75,43 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $article=Article::find($id); //выбираем статью для редактирования
-        $categories=Category::all(); // выбираем все категории
+        $article = Article::find($id); //выбираем статью для редактирования
+        $categories = Category::all(); // выбираем все категории
         $groups = Group::all(); //выбираем все группы
-        return view('admin.articles.edit',['article'=>$article,'categories'=>$categories, 'groups' => $groups]);
+        return view('admin.articles.edit', ['article' => $article, 'categories' => $categories, 'groups' => $groups]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-      $article=Article::find($id);
+        $article = Article::find($id);
 
-        if($request->hasFile('preview')) {
+        if ($request->hasFile('preview')) {
             $img_root = 'images/articles';
 
             $fileName = $request->file('preview')->getClientOriginalName();
             $request->file('preview')->move($img_root, $fileName);
 
-            $all = $request -> all();
+            $all = $request->all();
             $all['preview'] = "/images/articles/" . $fileName;
 
-            $article -> update($all);
+            $article->update($all);
 
         } else {
-            $all = $request -> all();
-          //  $all['preview']= "placehold.it";
-            $article -> update($all);
+            $all = $request->all();
+            //  $all['preview']= "placehold.it";
+            $article->update($all);
         }
         Session::flash('message', 'Товар изменён!');
         return Redirect::to('/admin');
@@ -118,17 +119,16 @@ class ArticlesController extends Controller
 
     }
 
-     public function destroy($id)
+    public function destroy($id)
     {
         $Comms = Comment::with('article');
-        $Comms -> delete();
+        $Comms->delete();
 
         $article = Article::find($id);
 
-        $fileName = ($article -> preview);
-        $fileName = mb_substr($fileName,1);
-        if (is_file($fileName))
-        {
+        $fileName = ($article->preview);
+        $fileName = mb_substr($fileName, 1);
+        if (is_file($fileName)) {
             unlink($fileName);
         }
 
