@@ -108,29 +108,26 @@
                 @foreach ($articles as $article)
                     <div class="col-md-3" >
                         <div class="productbox text23">
+
                             <div class="_image">
-                            <img src="{{asset($article -> preview)}}" class="img-responsive">
+                                <img src="{{asset($article -> preview)}}" class="img-responsive">
 
-                                @if ($article -> group -> title == 'новинка'){
-
+                                @if ($article -> group -> title == 'новинка')
                                     <a href="{{action('FrontController@show',$article->id)}}"><img src="{{asset('images/frontsite/new2.png')}}" class="news"></a>
-                                }
-                                    @else
-                                {
+                                @else
                                     <a href="{{action('FrontController@show',$article->id)}}"><img src="{{asset('images/frontsite/blank.png')}}" class="news"></a>
-                                    }
-                                 @endif
+                                @endif
 
                             </div>
+
                             <div class="producttitle">{{$article -> title}}</div>
 
                             <div class="productprice">
-
                                    <div class="productbutton pull-right">
                                     <a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a>
                                    </div>
 
-                                <div class="pricetext">p. {{$article -> cena}}</div>
+                                <div class="pricetext">£ {{$article -> cena}}</div>
                             </div>
                         </div>
                     </div>

@@ -99,6 +99,12 @@ Route::get('/cart', function() { return view('site.cart'); });
 Route::get('/about', function() { return view('site.about'); });
 Route::get('/dostavka', function() { return view('site.dostavka'); });
 Route::get('/contact', function() { return view('site.contact'); });
+Route::get('/news','FrontController@news');
+
+
+
+
+
 
 //-----------------------------------------------------
 Route::auth();

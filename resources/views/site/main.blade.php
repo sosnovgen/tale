@@ -83,7 +83,7 @@
                     <a href="{{asset('/assortiment')}}">Товары</a>
                 </li>
                 <li>
-                    <a href="#">Новинка</a>
+                    <a href="{{asset('/news')}}">Новинка</a>
                 </li>
                 <li>
                     <a href="#">Распродажа</a>

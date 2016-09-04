@@ -6,6 +6,7 @@ use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Article;
+use App\Group;
 use App\Category;
 use Validator;
 use Session;
@@ -193,7 +194,25 @@ class FrontController extends Controller
             'n' => $n,
         ]);
     }
-    
-    
+
+    //-------------------------------------------------------
+    //Сортировка по категории
+    public function news()
+    {
+        $categories = Category::all(); //Все категории
+        $group = Group::where('title','=','новинка');
+        $id  = $group->first()-> id;
+
+        $articles = Article::where('group_id','=',$id) -> get(); //Выбрать все новинки*/
+
+        $n = 0; //Признак сортировки по категориям
+
+        return view('site.page',[
+            'categories' => $categories,
+            'articles' => $articles,
+            'n' => $n,
+        ]);
+
+    }
 }
 

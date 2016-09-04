@@ -85,14 +85,14 @@
                             <div class="_image">
                                 <img src="{{asset($articles -> preview)}}" class="img-responsive"  style="margin: auto;">
 
-                                @if ($articles -> group -> title == 'новинка'){
+                                @if ($articles -> group -> title == 'новинка')
 
                                     <img src="{{asset('images/frontsite/new2.png')}}" class="news">
-                                }
+
                                 @else
-                                    {
+
                                     <img src="{{asset('images/frontsite/blank.png')}}" class="news">
-                                    }
+
                                 @endif
 
                             </div>
