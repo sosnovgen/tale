@@ -244,6 +244,31 @@ $(document).ready(function () {
 
     })
 
+  /*  //------------- Сортировка по категории в articles ----------------------
+    $('#select_cat').change(function (event) {
+       
+        var id = $(this).val(); //код из списка select
+        var href = '/admin/articles/' + id; //адрес контроллера.
+        var path = location.pathname;
+
+        alert(path);
+        if($(this).val() == '9097') {
+            $(location).attr('href', 'articles/');
+        }
+
+        else{
+
+            $(location).attr('href', path + id);
+        }
+
+
+    })
+
+   */
+
+
+
+
 
 })
 

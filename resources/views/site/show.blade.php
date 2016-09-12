@@ -104,7 +104,7 @@
                         <div class="productbox" style="padding-left: 25px;">
                             <p>Код: {{$articles -> id}}</p>
                             <div class="hor_line_11"></div>
-                            <div class="pricetext">p. {{$articles -> cena}} <span class="text27"> (цену уточняйте)</span></div>
+                            <div class="pricetext">{{$articles -> cena}} p.<span class="text27"> (цену уточняйте)</span></div>
                             <div class="productprice_cap">
                                 <div class="pull-left">
                                     <a href="{{action('FrontController@session',$articles -> id)}}" class="btn btn-success " role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина </a>

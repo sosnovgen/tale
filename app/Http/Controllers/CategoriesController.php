@@ -19,7 +19,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::all() -> sortBy('title');
         return view('admin.categories.categories', ['categories' => $categories,]);
     }
 

@@ -5,7 +5,7 @@
         <div class="col-md-4">
             <h2>Ассортимент</h2>
             <ul class="list-group">
-                <li class="list-group-item"><a href="{{action('ArticlesController@index')}}" >Все товары</a></li>
+                <li class="list-group-item"><a href="{{action('ArticlesController@index')}}">Все товары</a></li>
                 <li class="list-group-item"><a href="{{route('admin.articles.create')}}" >Добавить товар</a></li>
             </ul>
 

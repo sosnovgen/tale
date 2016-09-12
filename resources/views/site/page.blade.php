@@ -127,7 +127,7 @@
                                     <a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a>
                                    </div>
 
-                                <div class="pricetext">£ {{$article -> cena}}</div>
+                                <div class="pricetext">{{$article -> cena}} p.</div>
                             </div>
                         </div>
                     </div>

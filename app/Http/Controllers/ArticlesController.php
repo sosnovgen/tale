@@ -18,28 +18,44 @@ use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('title') -> get();
         $categories = Category::all();
         $groups = Group::all();
+        $sort = 0;
 
-        return view('admin.articles.articles', ['articles' => $articles], ['categories' => $categories], ['groups' => $groups]);
+        return view('admin.articles.articles',
+           [
+            'articles' => $articles,
+            'categories' => $categories,
+            'groups' => $groups,
+            'sort' => $sort,
+           ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function indexid($id)
+    {
+        $articles = Article::where('category_id','=',$id) -> orderBy('title') -> get();
+        $categories = Category::all();
+        $groups = Group::all();
+        $sort = 1;
+
+        return view('admin.articles.articles',
+            [
+                'articles' => $articles,
+                'categories' => $categories,
+                'groups' => $groups,
+                'sort' => $sort,
+            ]);
+    }
+
+
     public function create()
     {
-        $categories = Category::all(); //выбираем все категории
+        $categories = Category::all() -> sortBy('title'); //выбираем все категории
         $groups = Group::all(); //выбираем все группы
         return view('admin.articles.create', ['categories' => $categories], ['groups' => $groups]);
     }
@@ -80,8 +96,8 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::find($id); //выбираем статью для редактирования
-        $categories = Category::all(); // выбираем все категории
+        $article = Article::find($id); //выбираем овар для редактирования
+        $categories = Category::all() -> sortBy('title'); // выбираем все категории
         $groups = Group::all(); //выбираем все группы
         return view('admin.articles.edit', ['article' => $article, 'categories' => $categories, 'groups' => $groups]);
     }
