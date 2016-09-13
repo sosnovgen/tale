@@ -73,7 +73,7 @@ Route::group(['prefix'=>'admin'], function()
     Route::get('comments/delete/{id}','CommentsController@delete');
     Route::get('comments/published/{id}','CommentsController@published');
 
-    Route::get('articles/{id}','ArticlesController@indexid');
+    Route::get('articlesort/{id}','ArticlesController@indexid');
     
     Route::resource('articles','ArticlesController');
     Route::resource('pages','PagesController');

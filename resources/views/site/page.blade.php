@@ -110,7 +110,7 @@
                         <div class="productbox text23">
 
                             <div class="_image">
-                                <img src="{{asset($article -> preview)}}" class="img-responsive">
+                                <img src="{{asset($article -> preview)}}" class="img-squre">
 
                                 @if ($article -> group -> title == 'новинка')
                                     <a href="{{action('FrontController@show',$article->id)}}"><img src="{{asset('images/frontsite/new2.png')}}" class="news"></a>

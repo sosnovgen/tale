@@ -68,6 +68,12 @@ class ArticlesController extends Controller
             $fileName = $request->file('preview')->getClientOriginalName();
             $request->file('preview')->move($img_root, $fileName);
 
+            $img = Image::make('images/articles/'. $fileName);
+            $img->resize(300, 300);
+            $img->save('images/articles/'. $fileName);
+
+
+
             $all = $request->all();
             $all['preview'] = "/images/articles/" . $fileName;
 
@@ -118,6 +124,10 @@ class ArticlesController extends Controller
 
             $fileName = $request->file('preview')->getClientOriginalName();
             $request->file('preview')->move($img_root, $fileName);
+
+            $img = Image::make('images/articles/'. $fileName);
+            $img->resize(300, 300);
+            $img->save('images/articles/'. $fileName);
 
             $all = $request->all();
             $all['preview'] = "/images/articles/" . $fileName;
