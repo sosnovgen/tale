@@ -165,10 +165,11 @@ class FrontController extends Controller
                 //$products[] = $prod;  //строку добавляем к массиву.
 
             }
+            $request->session()->flush(); //очистить сессию.
           }
 
         Session::flash('message', 'Заказ отправлен!');
-        return redirect('');
+        return redirect('/assortiment');
     }
 
 

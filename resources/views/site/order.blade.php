@@ -65,7 +65,7 @@
                         <br>
                         <div class="arrow_edit">
                             <img src="{{asset('images/frontsite/back_arrow.jpg')}}">
-                            <a href="{{asset('/')}}">Вернуться назад</a>
+                            <a href="{{asset('/assortiment')}}">Вернуться назад</a>
                         </div>
                     </div>
                     <div class="col-md-5 but_order">

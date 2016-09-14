@@ -140,7 +140,7 @@
 
             var disqus_config = function () {
                 this.page.url = '{{url('show.blade.php')}}'; //PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier ='{{$articles -> title}}'; //PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.identifier ='{{$articles -> id}}'; //PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
 
             (function() { // DON'T EDIT BELOW THIS LINE

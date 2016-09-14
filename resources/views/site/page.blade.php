@@ -95,6 +95,13 @@
 
                 </div>
 
+                @if(Session::has('message'))
+                    <div class="alert alert-success fade in">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Success!</strong> {{Session::get('message')}}.
+                    </div>
+                @endif
+
                 {{----------------- Название категории ------------------}}
                 <div class="row">
                     <div class="cat_cap">
@@ -134,16 +141,10 @@
                 @endforeach
 
 
-
             </div>
         </div>
 <br>
-        @if(Session::has('message'))
-            <div class="alert alert-success fade in">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                <strong>Success!</strong> {{Session::get('message')}}.
-            </div>
-        @endif
+
 
     </div>
 
