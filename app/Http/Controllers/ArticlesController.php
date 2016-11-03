@@ -72,8 +72,6 @@ class ArticlesController extends Controller
             $img->resize(300, 300);
             $img->save('images/articles/'. $fileName);
 
-
-
             $all = $request->all();
             $all['preview'] = "/images/articles/" . $fileName;
 

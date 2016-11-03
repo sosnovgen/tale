@@ -105,9 +105,6 @@ Route::get('/news','FrontController@news');
 
 
 
-
-
-
 //-----------------------------------------------------
 Route::auth();
 Route::get('/admin', 'HomeController@index');

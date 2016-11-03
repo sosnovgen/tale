@@ -25,8 +25,8 @@
                     <div class = "ul_cat">
                         <div class="line_cat"></div>
                         <table style="margin: 8px 0 8px 0">
-                            <tr><td class="pull-right"><strong>Телефон:</strong></td><td> &nbsp;+38 (916) 089-20-45</td></tr>
-                            <tr><td><strong></strong></td><td> &nbsp+38 (916) 089-20-45 </td></tr>
+                            <tr><td class="pull-right"><strong>Телефон:</strong></td><td> &nbsp;+380 (66) 65-107-23</td></tr>
+                            <tr><td><strong></strong></td><td> &nbsp+380 (66) 65-107-23 </td></tr>
                             <tr><td class="pull-right"><strong>E-mail:</strong></td><td>&nbsp;malleka@mail.ru</td></tr>
                             <tr><td class="pull-right"><strong>Skype:</strong></td><td> &nbsp;malleka_24</td></tr>
                             <tr><td class="pull-right"><strong>Адрес:</strong></td><td> &nbsp;метро "Бульвар </td></tr>

@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Gate::denies('create')){
+        if (Gate::denies('create')){
             return redirect('/');
         }
         
