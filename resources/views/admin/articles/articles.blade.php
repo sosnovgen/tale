@@ -70,6 +70,9 @@
         </tbody>
         </table>
 
+        {{--begin of pagination--}}
+        <div style="width: 50%; margin: 0 auto; text-align: center"> {!! $links !!} </div>
+        {{--end of pagination--}}
 
         </div>
 

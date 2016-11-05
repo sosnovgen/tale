@@ -45,17 +45,22 @@
             <div class="telephon_img">
                 <img src="{{asset('images/frontsite/phone.png')}}" class="img-responsive ">
             </div>
-            <div class="telephon_text">+38 (916) 089-20-45</div>
+            <div class="telephon_text">+7(916) 089-20-45</div>
         </div>
 
+
+        <form role="form" method="GET" action="{{action('FrontController@search')}}" enctype="multipart/form-data">
         <div class="input-group stylish-input-group input-width">
-            <input type="text" class="form-control"  placeholder="Search" >
+
+            <input type="search" name="search" class="form-control"  placeholder="Search" >
                     <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
+
         </div>
+        </form>
     </div>
 
 </div>
@@ -137,7 +142,7 @@
             <div class="col-md-4 widget">
                 <h2>Контакты</h2>
                 <article class="widget_content">
-                    <p> Малыхина Ольга<br> 117628 Москва<br> м. Дмитрия Донского<br> Phone: +38 (916) 089-20-45</p>
+                    <p> Малыхина Ольга<br> 117628 Москва<br> м. Дмитрия Донского<br> Phone: +7(916) 089-20-45</p>
                 </article>
             </div>
         </div>

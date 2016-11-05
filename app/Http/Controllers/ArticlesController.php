@@ -22,7 +22,8 @@ class ArticlesController extends Controller
 
     public function index()
     {
-        $articles = Article::orderBy('title') -> get();
+        $articles = Article::orderBy('title') -> paginate(8);
+        $links = str_replace('/?', '?', $articles->render());
         $categories = Category::all();
         $groups = Group::all();
         $sort = 0;
@@ -33,12 +34,14 @@ class ArticlesController extends Controller
             'categories' => $categories,
             'groups' => $groups,
             'sort' => $sort,
+            'links' => $links,
            ]);
     }
 
     public function indexid($id)
     {
-        $articles = Article::where('category_id','=',$id) -> orderBy('title') -> get();
+        $articles = Article::where('category_id','=',$id) -> orderBy('title') -> paginate(8);
+        $links = str_replace('/?', '?', $articles->render());
         $categories = Category::all();
         $groups = Group::all();
         $sort = 1;
@@ -49,6 +52,7 @@ class ArticlesController extends Controller
                 'categories' => $categories,
                 'groups' => $groups,
                 'sort' => $sort,
+                'links' => $links,
             ]);
     }
 

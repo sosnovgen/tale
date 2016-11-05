@@ -93,6 +93,7 @@ Route::post('/store_order}','FrontController@store_order');
 
 Route::get('/show/{id}','FrontController@show');
 Route::get('/','FrontController@one');
+Route::get('/search','FrontController@search');
 Route::get('/assortiment','FrontController@index');
 Route::get('/sort/{id}','FrontController@sort');
 

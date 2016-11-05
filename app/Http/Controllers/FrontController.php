@@ -21,13 +21,15 @@ class FrontController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $articles = Article::all();
+        $articles = Article::paginate(12);
+        $links = str_replace('/?', '?', $articles->render());
         $n = 0; //Признак сортировки
         
         return view('site.page',[
             'categories' => $categories,
             'articles' => $articles,
             'n' => $n,
+            'links' => $links,
         ]);
 
         /*$articles=Article::where('public','=',1)->get();
@@ -186,13 +188,15 @@ class FrontController extends Controller
     public function sort($id)
     {
         $categories = Category::all(); //Все категории
-        $articles = Article::where('category_id','=',$id) -> get(); //Выбрать записи по категории*/
+        $articles = Article::where('category_id','=',$id) -> paginate(12);
+        $links = str_replace('/?', '?', $articles->render());
         $n = 1; //Признак сортировки
 
         return view('site.page', [
             'categories' => $categories, 
             'articles' => $articles,
             'n' => $n,
+            'links' => $links,
         ]);
     }
 
@@ -204,16 +208,38 @@ class FrontController extends Controller
         $group = Group::where('title','=','новинка');
         $id  = $group->first()-> id;
 
-        $articles = Article::where('group_id','=',$id) -> get(); //Выбрать все новинки*/
-
+        $articles = Article::where('group_id','=',$id) -> paginate(12); //Выбрать все новинки*/
+        $links = str_replace('/?', '?', $articles->render());
         $n = 0; //Признак сортировки по категориям
 
         return view('site.page',[
             'categories' => $categories,
             'articles' => $articles,
             'n' => $n,
+            'links' => $links,
         ]);
 
     }
+    //-------------------------------------------------------
+    //Find in articles.
+    public function search(Request $request)
+    {
+        $categories = Category::all();
+        $query = $request -> search;
+        $articles = Article::where('title', 'LIKE', '%' . $query . '%')->paginate(12);
+        $links = str_replace('/?', '?', $articles->render());
+        $n = 0; //Признак сортировки
+
+        /*return view('site.page', copmpact('categories','query','articles','links', 'n'));*/
+        return view('site.page',[
+            'categories' => $categories,
+            'articles' => $articles,
+            'n' => $n,
+            'links' => $links,
+            'query' => $query,
+        ]);
+    }
+
+
 }
 

@@ -1,6 +1,4 @@
 @extends('site.main')
-
-
 @section('content')
 
     <!---------------------- Page Content ---------------------------->
@@ -130,9 +128,9 @@
                             <div class="producttitle">{{$article -> title}}</div>
 
                             <div class="productprice">
-                                   <div class="productbutton pull-right">
+                                <div class="productbutton pull-right">
                                     <a href="{{action('FrontController@session',$article -> id)}}" class="btn btn-success btn-sm" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина</a>
-                                   </div>
+                                </div>
 
                                 <div class="pricetext">{{$article -> cena}} p.</div>
                             </div>
@@ -143,8 +141,10 @@
 
             </div>
         </div>
-<br>
-
+        <br>
+        {{--begin of pagination--}}
+        <div style="width: 50%; margin: 0 auto; text-align: center"> {!! $links !!} </div>
+        {{--end of pagination--}}
 
     </div>
 
