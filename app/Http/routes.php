@@ -104,6 +104,13 @@ Route::get('/dostavka', function() { return view('site.dostavka'); });
 Route::get('/contact', function() { return view('site.contact'); });
 Route::get('/news','FrontController@news');
 
+Route::get('/e-mail',
+    [
+        'as' => 'e-mail',
+        'uses' => 'EmailController@send',
+    ]);
+
+
 
 
 //-----------------------------------------------------

@@ -14,6 +14,7 @@ use Session;
 use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Mail;
 
 class FrontController extends Controller
 
@@ -144,7 +145,7 @@ class FrontController extends Controller
         //----------------- Order -------------------
         $all = $request -> all();         //Взять данные заказа из запроса
         $model = Order::create($all);     //Сохраняем заказ.
-        $int = $model ->id;                //Индекс сохранённой записи.
+        $int = $model ->id;               //Индекс сохранённой записи.
 
         //----------------- Products -------------------
         if ($request->session()->has('sale')) //Есть массив 'sale'?
@@ -168,6 +169,15 @@ class FrontController extends Controller
 
             }
             $request->session()->flush(); //очистить сессию.
+
+            /*-----------  Post     -------------*/
+            $content = 'http://www.malleka.ru/admin';   //$request->input('content');
+            Mail::queue('emails.send', [/*'title' => $title,*/'content' => $content, ], function ($message)
+            {
+                $message->from('user@gmail', 'Neil5Art');
+                $message->to('juliasmall@mail.ru')->subject('Новый заказ');
+
+            });
           }
 
         Session::flash('message', 'Заказ отправлен!');

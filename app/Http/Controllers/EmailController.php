@@ -10,23 +10,18 @@ class EmailController extends Controller
 {
     public function send(Request $request){
 
-        $title = 'Новый заказ';//$request->input('title');
-        $content = 'Получен новый заказ.';   //$request->input('content');
+        /*$title = 'Новый заказ';//$request->input('title');*/
+        $content = 'http://www.malleka.ru/admin';   //$request->input('content');
 
-        Mail::send('emails.send', ['title' => $title, 'content' => $content], function ($message)
+        Mail::queue('emails.send', [/*'title' => $title,*/'content' => $content, ], function ($message)
         {
-
-            $message->from('me@gmail.com', 'Neil5Art');
-
-            $message->to('juliasmall@mail.ru');
+            $message->from('user@gmail', 'Neil5Art');
+            $message->to('juliasmall@mail.ru')->subject('Новый заказ');
 
         });
 
-        return response()->json(['message' => 'Request completed']);
-
-
-
-
+        /*  return response()->json(['message' => 'Request completed'])*/;
+        return back();
 
     }
 }

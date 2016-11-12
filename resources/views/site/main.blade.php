@@ -92,7 +92,7 @@
                     <a href="{{asset('/news')}}">Новинка</a>
                 </li>
                 <li>
-                    <a href="#">Распродажа</a>
+                    <a href="http://www.school.malleka.ru">Обучение</a>
                 </li>
                 <li>
                     <a href="{{asset('/contact')}}">Контакты</a>
